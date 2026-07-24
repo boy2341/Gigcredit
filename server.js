@@ -89,9 +89,9 @@ if (typeof connectDB === 'function') {
  * @access  Public
  */
 app.get('/', (req, res) => {
-  // If request accepts HTML, serve frontend homepage.html; otherwise return JSON health status
+  // If request accepts HTML, serve frontend login.html; otherwise return JSON health status
   if (req.accepts('html') && !req.xhr) {
-    return res.sendFile(path.join(__dirname, 'frontend', 'homepage.html'));
+    return res.sendFile(path.join(__dirname, 'frontend', 'login.html'));
   }
   res.status(200).json({ status: 'healthy' });
 });
