@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GigCredit - Lender Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#263143",
+                      "secondary": "#006c49",
+                      "surface-bright": "#f9f9ff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#434655",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-dim": "#cfdaf2",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#00174b",
+                      "background": "#f9f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#996100",
+                      "outline-variant": "#c3c6d7",
+                      "secondary-fixed": "#6ffbbe",
+                      "surface-container-low": "#f0f3ff",
+                      "on-tertiary-fixed": "#2a1700",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#784b00",
+                      "on-surface": "#111c2d",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#e7eeff",
+                      "on-background": "#111c2d",
+                      "on-secondary-fixed": "#002113",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-tint": "#0053db",
+                      "inverse-primary": "#b4c5ff",
+                      "on-primary-container": "#eeefff",
+                      "on-tertiary-container": "#ffeedd",
+                      "surface-container-high": "#dee8ff",
+                      "secondary-container": "#6cf8bb",
+                      "surface": "#f9f9ff",
+                      "primary": "#004ac6",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-container-highest": "#d8e3fb",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "outline": "#737686",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "surface-variant": "#d8e3fb",
+                      "inverse-on-surface": "#ecf1ff",
+                      "on-secondary-container": "#00714d",
+                      "primary-container": "#2563eb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "2xl": "48px",
+                      "container-max": "1280px",
+                      "lg": "24px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "3xl": "64px",
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface h-screen w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col p-md gap-sm hidden md:flex z-50">
+<div class="mb-xl flex flex-col items-center gap-sm mt-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-outline-variant shadow-sm bg-surface-container-low">
+<img alt="Lender Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a financial lender wearing a crisp blue dress shirt, looking confidently at the camera. The background is a blurred, bright modern office setting. The lighting is soft and natural, creating a trustworthy and premium fintech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPOxuXTC_B6sebO5DKmgEQskb62c0lNkuRDojU9jo2A3L7e1PniF0f3ngO0hf2XiahCH_SALDc-qNCBt5To48is6pqgaTqTXTA2cOVWujyYL97Q9ZpxWyGKqrpQ7sBk-ZFthVE3mjnVOyhr_CsmU6eIXmUSqZQn31QknJfC0XeJ2RVY_OiRJJ0zB1iNfNt7mL0gtRviLi7cB9MC_6njaHbl7ETBOkkH6W0cFE0B0HwoDqWkdEmll5BIA"/>
+</div>
+<div class="text-center">
+<h2 class="text-title-lg font-title-lg text-primary" id="sidebar-institution">Lender Portal</h2>
+<p class="text-label-md font-label-md text-on-surface-variant" id="sidebar-portfolio">Active Portfolio: $0</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-sm">
+<a aria-current="page" class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined" data-weight="fill">space_dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">pie_chart</span>
+<span class="font-label-md text-label-md">Portfolio</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-md">
+<button class="w-full flex items-center justify-center gap-sm px-md py-sm text-on-surface-variant hover:text-error transition-colors" id="logout-btn">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 overflow-y-auto bg-background p-md md:p-xl lg:p-2xl flex flex-col gap-2xl scroll-smooth">
+<!-- Header -->
+<header class="flex justify-between items-end pb-lg border-b border-outline-variant">
+<div>
+<h1 class="text-display-lg font-display-lg text-on-surface mb-sm">Dashboard Overview</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant" id="lender-welcome">Welcome back. Here is the latest on your lending portfolio.</p>
+</div>
+<div class="hidden sm:flex gap-sm">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface px-md py-sm rounded-lg font-label-md text-label-md hover:border-primary transition-all flex items-center gap-xs shadow-sm" id="export-btn">
+<span class="material-symbols-outlined text-[18px]">download</span> Export Report
+                </button>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity shadow-sm flex items-center gap-xs" id="new-investment-btn">
+<span class="material-symbols-outlined text-[18px]">add</span> New Investment
+                </button>
+</div>
+</header>
+<!-- KPIs Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Applicants</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-surface" id="kpi-applicants">--</div>
+<div class="flex items-center gap-xs text-secondary mt-xs">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-label-md text-label-md">Total registered workers</span>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Money Lent</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-surface font-data-mono" id="kpi-money-lent">$0</div>
+<div class="flex items-center gap-xs text-secondary mt-xs">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-label-md text-label-md">Across your active loans</span>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Loans</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-surface font-data-mono" id="kpi-active-loans">0</div>
+<div class="flex items-center gap-xs text-on-surface-variant mt-xs">
+<span class="material-symbols-outlined text-[16px]">horizontal_rule</span>
+<span class="font-label-md text-label-md" id="kpi-outstanding">$0 outstanding</span>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md relative overflow-hidden">
+<div class="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Collection Rate</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div class="relative z-10">
+<div class="text-headline-lg font-headline-lg text-secondary font-data-mono" id="kpi-collection-rate">100%</div>
+<div class="flex items-center gap-xs text-secondary mt-xs">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-label-md text-label-md">Of repayments collected</span>
+</div>
+</div>
+</div>
+<!-- Worker Marketplace -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h2 class="text-title-lg font-title-lg text-on-surface">Worker Marketplace</h2>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">Review applicants and extend loan offers</p>
+</div>
+<input class="border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim" id="worker-search" placeholder="Search by name or email" type="text"/>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Worker</th>
+<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">GigCredit Score</th>
+<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Monthly Income</th>
+<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Eligibility</th>
+<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Risk</th>
+<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"></th>
+</tr>
+</thead>
+<tbody id="workers-table-body">
+<tr><td class="py-md px-sm font-body-md text-body-md text-on-surface-variant" colspan="6">Loading applicants...</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- Recent Loans -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h2 class="text-title-lg font-title-lg text-on-surface mb-md">Your Loan Portfolio</h2>
+<div class="space-y-md" id="lender-loans-list">
+<p class="font-body-md text-body-md text-on-surface-variant">Loading loans...</p>
+</div>
+</section>
+
+<!-- Status banner -->
+<div class="hidden bg-error-container text-on-error-container rounded-xl p-md font-body-md text-body-md" id="status-banner"></div>
+</main>
+
+<!-- New Investment / Offer Modal -->
+<div class="hidden fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-[100] flex items-center justify-center p-md" id="offer-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg max-w-md w-full p-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="text-title-lg font-title-lg text-on-surface">Make a Loan Offer</h3>
+<button class="text-on-surface-variant hover:text-error" id="offer-modal-close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<p class="hidden font-body-md text-body-md text-error mb-sm" id="offer-modal-error"></p>
+<div class="space-y-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Worker</label>
+<select class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-worker-select"></select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Offer Title</label>
+<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-title" placeholder="e.g. Working Capital Loan" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Amount ($)</label>
+<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-amount" min="100" type="number"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Interest Rate (%)</label>
+<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-rate" min="1" step="0.1" type="number"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs">Tenure (months)</label>
+<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-tenure" min="1" type="number"/>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-md py-sm hover:opacity-90 transition-opacity" id="offer-submit">Send Offer</button>
+</div>
+</div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/lender.js"></script>
+</body></html>
