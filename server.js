@@ -284,14 +284,16 @@ app.use((err, req, res, next) => {
 // ============================================================================
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`🚀 GigCredit Infrastructure Backend running on port ${PORT}`);
-  console.log(`   Health Check: GET http://localhost:${PORT}/`);
-  console.log(`   Sync Endpoint: POST http://localhost:${PORT}/api/sync`);
-  console.log(`   Score Endpoint: GET http://localhost:${PORT}/api/score`);
-  console.log(`   Withdraw Endpoint: POST http://localhost:${PORT}/api/withdraw`);
-  console.log(`====================================================`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`🚀 GigCredit Infrastructure Backend running on port ${PORT}`);
+    console.log(`   Health Check: GET http://localhost:${PORT}/`);
+    console.log(`   Sync Endpoint: POST http://localhost:${PORT}/api/sync`);
+    console.log(`   Score Endpoint: GET http://localhost:${PORT}/api/score`);
+    console.log(`   Withdraw Endpoint: POST http://localhost:${PORT}/api/withdraw`);
+    console.log(`====================================================`);
+  });
+}
 
 module.exports = app;
