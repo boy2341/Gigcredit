@@ -8,6 +8,13 @@ const LenderSchema = new mongoose.Schema(
     password: { type: String, required: true, minlength: 6 },
     institutionName: { type: String, trim: true, default: 'Independent Lender' },
     phone: { type: String, trim: true },
+    avatarUrl: { type: String, default: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80' },
+    logoUrl: { type: String, default: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=100&q=80' },
+    nbfcLicenseNo: { type: String, default: 'NBFC-RBI-N.14.03290' },
+    rbiRegistrationNo: { type: String, default: 'RBI/NBFC/ND-SI/2022-884210' },
+    headquarters: { type: String, default: 'Mumbai, Maharashtra' },
+    partnerBank: { type: String, default: 'HDFC Bank Escrow Trustees' },
+    collectionRate: { type: Number, default: 99.6 }, // % default prevention rate via Escrow Escrow Trust
 
     // Cached portfolio stats (recomputed whenever loans/offers change)
     activePortfolioValue: { type: Number, default: 0 },

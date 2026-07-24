@@ -1,179 +1,401 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GigCredit - Credit Built Around Your Work</title>
+<title>GigCredit - Portable Credit Built Around Your Work</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "inverse-surface": "#263143",
-                        "secondary": "#006c49",
-                        "surface-bright": "#f9f9ff",
-                        "on-primary-fixed-variant": "#003ea8",
-                        "secondary-fixed-dim": "#4edea3",
-                        "on-primary": "#ffffff",
-                        "on-surface-variant": "#434655",
-                        "tertiary-fixed": "#ffddb8",
-                        "on-error": "#ffffff",
-                        "tertiary-fixed-dim": "#ffb95f",
-                        "surface-dim": "#cfdaf2",
-                        "on-error-container": "#93000a",
-                        "on-primary-fixed": "#00174b",
-                        "background": "#f9f9ff",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-container": "#996100",
-                        "outline-variant": "#c3c6d7",
-                        "secondary-fixed": "#6ffbbe",
-                        "surface-container-low": "#f0f3ff",
-                        "on-tertiary-fixed": "#2a1700",
-                        "error-container": "#ffdad6",
-                        "tertiary": "#784b00",
-                        "on-surface": "#111c2d",
-                        "on-secondary": "#ffffff",
-                        "surface-container": "#e7eeff",
-                        "on-background": "#111c2d",
-                        "on-secondary-fixed": "#002113",
-                        "on-secondary-fixed-variant": "#005236",
-                        "surface-tint": "#0053db",
-                        "inverse-primary": "#b4c5ff",
-                        "on-primary-container": "#eeefff",
-                        "on-tertiary-container": "#ffeedd",
-                        "surface-container-high": "#dee8ff",
-                        "secondary-container": "#6cf8bb",
-                        "surface": "#f9f9ff",
-                        "primary": "#004ac6",
+                    colors: {
+                        primary: "#004ac6",
                         "primary-fixed": "#dbe1ff",
-                        "surface-container-highest": "#d8e3fb",
-                        "on-tertiary": "#ffffff",
-                        "error": "#ba1a1a",
-                        "outline": "#737686",
-                        "primary-fixed-dim": "#b4c5ff",
-                        "on-tertiary-fixed-variant": "#653e00",
-                        "surface-variant": "#d8e3fb",
-                        "inverse-on-surface": "#ecf1ff",
-                        "on-secondary-container": "#00714d",
-                        "primary-container": "#2563eb"
+                        secondary: "#006c49",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#e7eeff",
+                        "on-surface": "#111c2d",
+                        "on-surface-variant": "#434655",
+                        outline: "#737686",
+                        "outline-variant": "#c3c6d7",
+                        background: "#f9f9ff",
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "2xl": "48px",
-                        "container-max": "1280px",
-                        "lg": "24px",
-                        "unit": "4px",
-                        "md": "16px",
-                        "sm": "8px",
-                        "3xl": "64px",
-                        "xs": "4px",
-                        "gutter": "24px",
-                        "xl": "32px"
-                    },
-                    "fontFamily": {
-                        "body-lg": ["Inter"],
-                        "headline-lg-mobile": ["Hanken Grotesk"],
-                        "title-lg": ["Inter"],
-                        "headline-lg": ["Hanken Grotesk"],
-                        "headline-md": ["Hanken Grotesk"],
-                        "display-lg": ["Hanken Grotesk"],
-                        "body-md": ["Inter"],
-                        "label-md": ["Inter"],
-                        "data-mono": ["JetBrains Mono"]
-                    },
-                    "fontSize": {
-                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "title-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
-                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    fontFamily: {
+                        body: ["Inter"],
+                        headline: ["Hanken Grotesk"],
+                        mono: ["JetBrains Mono"]
                     }
-                },
-            },
+                }
+            }
         }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
 </head>
-<body class="bg-background text-on-surface font-body-lg antialiased">
-<!-- TopNavBar -->
-<nav class="bg-surface border-b border-outline-variant shadow-sm fixed top-0 w-full z-50 transition-all duration-300" id="top-nav">
-<div class="max-w-container-max mx-auto px-lg flex justify-between items-center h-16">
-<div class="text-headline-md font-headline-md font-bold text-primary">GigCredit</div>
-<div class="hidden md:flex gap-lg items-center">
-<a class="font-body-lg text-body-lg text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-150" href="#">Home</a>
-<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">How it Works</a>
-<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">For Workers</a>
-<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">For Lenders</a>
-<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">About</a>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary selection:text-white">
+<!-- Top Navbar -->
+<nav class="bg-white/80 backdrop-blur-md border-b border-outline-variant fixed top-0 w-full z-50 transition-all duration-300" id="top-nav">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg shadow-md shadow-primary/20">G</div>
+<span class="text-2xl font-headline font-extrabold text-gradient">GigCredit</span>
+<span class="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full border border-primary/20">FINTECH 2.0</span>
 </div>
-<div class="flex items-center gap-md">
-<a class="font-label-md text-label-md text-primary font-bold hover:opacity-80 transition-opacity" href="login.html">Login</a>
-<a class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded hover:opacity-90 transition-opacity hidden md:inline-block" href="login.html">Get Started</a>
+<div class="hidden md:flex gap-8 items-center font-medium text-sm">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#hero">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#workflow">9-Step Workflow</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#underwriting">Underwriting Engine</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#demo-personas">Demo Profiles</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="text-sm font-semibold text-primary hover:opacity-80 transition-opacity" href="login.html">Sign In</a>
+<a class="bg-primary text-white font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-blue-700 shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5" href="login.html">Get Started</a>
 </div>
 </div>
 </nav>
-<main class="pt-24 pb-3xl">
+
+<main class="pt-24 pb-20">
 <!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-lg py-3xl flex flex-col md:flex-row items-center gap-2xl">
-<div class="flex-1 space-y-lg">
-<h1 class="font-display-lg text-display-lg text-on-surface">Credit Built Around Your Work.</h1>
-<p class="font-title-lg text-title-lg text-on-surface-variant max-w-2xl">Unlock affordable loans using your real earning history across Swiggy, Uber, Blinkit, Zepto and other gig platforms.</p>
-<div class="flex gap-md pt-sm">
-<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-md rounded-lg hover:shadow-md transition-shadow" onclick="window.location.href='login.html'">Get Started</button>
-<button class="border-2 border-outline-variant text-on-surface font-label-md text-label-md px-lg py-md rounded-lg hover:border-primary hover:text-primary transition-colors" onclick="window.location.href='login.html'">Login</button>
+<section class="max-w-7xl mx-auto px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" id="hero">
+<div class="lg:col-span-7 space-y-6 animate-fade-in-up">
+<div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold px-3.5 py-1.5 rounded-full animate-float">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+Automated Escrow Repayments &amp; Portable Financial Identity
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-headline font-extrabold text-on-surface leading-tight tracking-tight">
+Credit Built Around <span class="text-gradient">Real Gig Work</span>, Not Bureau Scores.
+</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+GigCredit aggregates cross-platform income velocity across Swiggy, Uber, Blinkit, and Zepto to issue instant, closed-loop micro-loans with near-zero default rates.
+</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="bg-primary text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-primary/30 hover:bg-blue-700 transition-all hover:-translate-y-0.5 flex items-center gap-2" href="login.html">
+<span>Launch Platform Demo</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="border border-outline-variant text-on-surface font-semibold px-6 py-3.5 rounded-xl hover:border-primary hover:text-primary transition-all bg-white" href="#workflow">
+See How It Works
+</a>
+</div>
+<!-- Trust metrics ticker -->
+<div class="pt-8 grid grid-cols-3 gap-6 border-t border-outline-variant/60">
+<div>
+<div class="text-2xl font-bold font-mono text-on-surface">$4.8M+</div>
+<div class="text-xs text-on-surface-variant font-medium">Gig Capital Deployed</div>
+</div>
+<div>
+<div class="text-2xl font-bold font-mono text-emerald-600">99.4%</div>
+<div class="text-xs text-on-surface-variant font-medium">Closed-Loop Collection</div>
+</div>
+<div>
+<div class="text-2xl font-bold font-mono text-primary">&lt; 60s</div>
+<div class="text-xs text-on-surface-variant font-medium">Reverse Auction Bid Match</div>
 </div>
 </div>
-<div class="flex-1 relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-outline-variant bg-surface-container-lowest">
-<img class="object-cover w-full h-full" data-alt="A clean, modern dashboard UI mockup for a fintech application. The dashboard displays a prominent credit score, a digital wallet balance, icons for various gig economy platforms like ride-sharing and food delivery, and available loan offers. The interface uses a crisp white background with deep blue and emerald green accents, reflecting a professional and secure financial environment. High-end SaaS aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFOgsR5u_QVALTFPXqmhDiUkALHECHNLf78gQaf4H8u4WWsNxFkOTteAESGtB1vcHLUK34V4sjWHh_nWOk3Q60tJcRfLsKDtRzcNxNatQn9yfKRZFC5utQgG07LFGyy1jxqYYbgSi67tI-sna0kUpyIU8DTMsq3y4tAxSX-qGHRsf9tOwvLJoZPze8nkEcaKKZpOXUpQc52iVmj1RgKC3riJM5H7RqQofCDi0jJYoMsZXaAN5urkXstg"/>
+</div>
+
+<!-- Hero Graphic Card -->
+<div class="lg:col-span-5 relative">
+<div class="glass-card rounded-2xl p-6 border border-outline-variant shadow-2xl relative overflow-hidden animate-pulse-glow">
+<div class="flex justify-between items-center mb-6">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">Live Virtual Account</span>
+<h3 class="text-xl font-bold font-headline text-on-surface">Escrow Payout Routing</h3>
+</div>
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 font-semibold text-xs rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Closed-Loop Active
+</span>
+</div>
+<!-- Escrow Card visual -->
+<div class="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white rounded-xl p-6 shadow-inner space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs text-slate-400 font-mono">PORTABLE FINANCIAL ID</p>
+<p class="text-lg font-bold font-mono tracking-wider">ESCROW-9042-8819</p>
+</div>
+<span class="material-symbols-outlined text-amber-400">verified_user</span>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-xs text-slate-400">Connected Platforms</p>
+<p class="text-sm font-semibold">Swiggy • Uber • Blinkit</p>
+</div>
+<div>
+<p class="text-xs text-slate-400">Auto Micro-EMI</p>
+<p class="text-sm font-semibold text-emerald-400">$5.00 / Daily Payout</p>
+</div>
+</div>
+</div>
+<!-- Dynamic Live Activity -->
+<div class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2">
+<div class="flex justify-between items-center text-slate-700">
+<span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Swiggy Daily Earnings</span>
+<span class="font-mono font-bold text-slate-900">+$145.00</span>
+</div>
+<div class="flex justify-between items-center text-emerald-700">
+<span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-600"></span> Escrow Auto EMI Deducted</span>
+<span class="font-mono font-bold">-$5.00</span>
+</div>
+<div class="flex justify-between items-center text-slate-500 pt-1 border-t border-slate-200">
+<span>Net Swept to Savings (HDFC ****4821)</span>
+<span class="font-mono font-bold text-slate-900">$140.00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 9-Step Architectural Workflow Section -->
+<section class="bg-white py-20 border-y border-outline-variant/60" id="workflow">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+<span class="bg-primary/10 text-primary font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest">End-to-End System Architecture</span>
+<h2 class="text-3xl sm:text-4xl font-headline font-extrabold text-on-surface">The 9-Step GigCredit Flywheel</h2>
+<p class="text-on-surface-variant">How our closed-loop escrow engine transforms fragmented gig data into low-risk institutional capital.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">01</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">User Conversion &amp; Portable ID</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Worker unlocks a personalized, portable financial identity backed by cross-platform work credentials.</p>
+</div>
+
+<!-- Step 2 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">02</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Consent-Based Data Ingestion</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Account Aggregator (AA) banking rails &amp; SMS parsing extract live payout notifications across Swiggy, Uber &amp; Zepto.</p>
+</div>
+
+<!-- Step 3 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">03</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Behavioral Underwriting Engine</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Calculates Multi-App Income Velocity, Stability Index, and Operational Trust (completion rate &amp; ratings).</p>
+</div>
+
+<!-- Step 4 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">04</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Programmatic API Marketplace</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Anonymized risk profiles are broadcasted to institutional lending partners via automated real-time APIs.</p>
+</div>
+
+<!-- Step 5 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">05</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Reverse-Auction Compete Bidding</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">NBFCs and Digital Banks programmatically bid to offer lower interest rates in under 60 seconds.</p>
+</div>
+
+<!-- Step 6 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">06</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Digital Wallet Escrow Provisioning</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Approved loan capital is disbursed into a secure GigCredit-linked Virtual Escrow Account.</p>
+</div>
+
+<!-- Step 7 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-primary text-white font-bold flex items-center justify-center font-mono mb-4">07</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Payout Routing Direction</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Worker sets default work app payout destination to their GigCredit Virtual Escrow Account.</p>
+</div>
+
+<!-- Step 8 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center font-mono mb-4">08</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Closed-Loop Repayment Gateway</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Micro-EMIs (e.g. $5/day) are extracted at source; remaining earnings are instantly swept to savings.</p>
+</div>
+
+<!-- Step 9 -->
+<div class="workflow-step-card active p-6 rounded-xl bg-slate-50">
+<div class="w-10 h-10 rounded-lg bg-indigo-600 text-white font-bold flex items-center justify-center font-mono mb-4">09</div>
+<h3 class="font-headline font-bold text-lg text-on-surface mb-2">Institutional Data Flywheel</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Near-zero default rates lower cost of capital, unlocking cheaper interest rates for all workers.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Interactive Underwriting Simulator Section -->
+<section class="max-w-7xl mx-auto px-6 py-20" id="underwriting">
+<div class="glass-card rounded-3xl p-8 sm:p-12 border border-outline-variant shadow-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="bg-primary/10 text-primary font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest">Step 3 Simulator</span>
+<h2 class="text-3xl font-headline font-extrabold text-on-surface">GigCredit Underwriting Engine</h2>
+<p class="text-on-surface-variant text-sm">Adjust gig work parameters below to see how our multi-app algorithm calculates real-time credit score and loan limits.</p>
+
+<div class="space-y-6 pt-2">
+<div>
+<div class="flex justify-between text-sm font-semibold text-on-surface mb-2">
+<span>Monthly Gig Earnings</span>
+<span class="font-mono text-primary font-bold" id="sim-earnings-val">$1,800 / mo</span>
+</div>
+<input class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary" id="sim-earnings" max="4500" min="400" step="100" type="range" value="1800"/>
+</div>
+
+<div>
+<div class="flex justify-between text-sm font-semibold text-on-surface mb-2">
+<span>Connected Gig Platforms</span>
+<span class="font-mono text-primary font-bold" id="sim-platforms-val">3 Platforms</span>
+</div>
+<input class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary" id="sim-platforms" max="5" min="1" step="1" type="range" value="3"/>
+</div>
+
+<div>
+<div class="flex justify-between text-sm font-semibold text-on-surface mb-2">
+<span>Average Rating &amp; Operational Trust</span>
+<span class="font-mono text-primary font-bold" id="sim-rating-val">4.85 Stars (96% Trust)</span>
+</div>
+<input class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary" id="sim-rating" max="5.0" min="3.5" step="0.1" type="range" value="4.85"/>
+</div>
+</div>
+</div>
+
+<!-- Output Badge Card -->
+<div class="lg:col-span-6 flex justify-center">
+<div class="w-full max-w-md bg-gradient-to-b from-slate-900 to-indigo-950 text-white rounded-2xl p-8 shadow-2xl text-center space-y-6">
+<div>
+<span class="text-xs uppercase tracking-widest text-slate-400 font-mono">Real-Time GigCredit Score</span>
+<div class="text-6xl font-headline font-extrabold text-gradient-emerald mt-2" id="sim-score-out">785</div>
+<div class="text-xs font-semibold px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full inline-block mt-2" id="sim-tier-out">Prime Tier (Low Risk)</div>
+</div>
+
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800 text-left">
+<div>
+<p class="text-xs text-slate-400">Approved Credit Line</p>
+<p class="text-xl font-bold font-mono text-white" id="sim-credit-out">$5,400</p>
+</div>
+<div>
+<p class="text-xs text-slate-400">Reverse Auction Rate</p>
+<p class="text-xl font-bold font-mono text-emerald-400" id="sim-rate-out">7.8% APR</p>
+</div>
+</div>
+
+<button class="w-full bg-primary text-white font-semibold py-3 rounded-xl hover:bg-blue-600 transition-colors text-sm" onclick="window.location.href='login.html'">
+Apply with this Score
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Demo Profiles Showcase Section -->
+<section class="bg-slate-50 py-20 border-t border-outline-variant/60" id="demo-personas">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+<span class="bg-primary/10 text-primary font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest">Instant 1-Click Launch</span>
+<h2 class="text-3xl sm:text-4xl font-headline font-extrabold text-on-surface">Explore Pre-Seeded Profiles</h2>
+<p class="text-on-surface-variant">Click any profile below to launch their dashboard instantly with live escrow wallets and loans.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="demo-profiles-grid">
+<!-- Profile Cards populated dynamically via JS -->
+<div class="p-6 text-center text-slate-500 font-medium">Loading demo personas...</div>
+</div>
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest w-full py-xl border-t border-outline-variant">
-<div class="max-w-container-max mx-auto px-lg grid grid-cols-2 md:grid-cols-4 gap-lg">
-<div class="col-span-2 md:col-span-1">
-<div class="text-body-lg font-body-lg font-bold text-on-surface mb-md">GigCredit</div>
-<p class="font-body-md text-body-md text-on-surface-variant">© 2024 GigCredit Financial. Secure and Transparent.</p>
+
+<footer class="bg-white border-t border-outline-variant py-10">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant">
+<div class="flex items-center gap-2 font-bold font-headline text-on-surface">
+<div class="w-6 h-6 rounded bg-primary text-white text-xs flex items-center justify-center">G</div>
+GigCredit Financial Technologies
 </div>
-<div class="flex flex-col gap-sm">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Privacy Policy</a>
-</div>
-<div class="flex flex-col gap-sm">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Contact Support</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Security</a>
-</div>
+<p>© 2026 GigCredit Inc. Account Aggregator &amp; Escrow Infrastructure.</p>
 </div>
 </footer>
+
+<script src="js/api.js"></script>
 <script>
-        // Simple script to add shadow to top nav on scroll
-        const topNav = document.getElementById('top-nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                topNav.classList.add('shadow-md');
-                topNav.classList.remove('shadow-sm');
-            } else {
-                topNav.classList.add('shadow-sm');
-                topNav.classList.remove('shadow-md');
-            }
+// Dynamic Underwriting Simulator Logic
+const earningsInput = document.getElementById('sim-earnings');
+const platformsInput = document.getElementById('sim-platforms');
+const ratingInput = document.getElementById('sim-rating');
+
+function updateSimulator() {
+    const earnings = parseInt(earningsInput.value);
+    const platforms = parseInt(platformsInput.value);
+    const rating = parseFloat(ratingInput.value);
+
+    document.getElementById('sim-earnings-val').textContent = `$${earnings.toLocaleString()} / mo`;
+    document.getElementById('sim-platforms-val').textContent = `${platforms} Platform${platforms > 1 ? 's' : ''}`;
+    document.getElementById('sim-rating-val').textContent = `${rating} Stars (${Math.round((rating/5)*100)}% Trust)`;
+
+    const eFactor = Math.min(earnings / 4000, 1);
+    const rFactor = Math.min(Math.max(rating - 3, 0) / 2, 1);
+    const pFactor = Math.min(platforms / 4, 1);
+
+    const score = Math.round(300 + (eFactor * 0.45 + rFactor * 0.35 + pFactor * 0.20) * 600);
+    const credit = Math.round((earnings * 3 * (0.4 + (score - 300)/600 * 0.6)) / 100) * 100;
+    const rate = score >= 740 ? 7.8 : score >= 620 ? 10.5 : 14.5;
+
+    document.getElementById('sim-score-out').textContent = score;
+    document.getElementById('sim-tier-out').textContent = score >= 740 ? 'Prime Tier (Low Risk)' : score >= 620 ? 'Standard Tier (Medium Risk)' : 'Starter Tier (Higher Risk)';
+    document.getElementById('sim-credit-out').textContent = `$${credit.toLocaleString()}`;
+    document.getElementById('sim-rate-out').textContent = `${rate}% APR`;
+}
+
+[earningsInput, platformsInput, ratingInput].forEach(el => el.addEventListener('input', updateSimulator));
+updateSimulator();
+
+// Populate Demo Personas
+async function loadDemoPersonas() {
+    try {
+        const data = await GigCreditAPI.getDemoAccounts();
+        const grid = document.getElementById('demo-profiles-grid');
+        grid.innerHTML = '';
+
+        (data.workers || []).forEach(w => {
+            const card = document.createElement('div');
+            card.className = 'glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-primary transition-all';
+            card.innerHTML = `
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="${w.avatarUrl}" class="w-12 h-12 rounded-full object-cover border-2 border-primary/20 shadow-sm" alt="${w.name}"/>
+                        <div>
+                            <h4 class="font-bold text-on-surface font-headline">${w.name}</h4>
+                            <p class="text-xs text-primary font-medium">${w.tagline || 'Gig Specialist'}</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-xs text-on-surface-variant mb-6">
+                        <div class="flex justify-between"><span>GigScore</span><span class="font-mono font-bold text-emerald-600">${w.gigCreditScore}</span></div>
+                        <div class="flex justify-between"><span>Est. Income</span><span class="font-mono font-semibold">$${w.monthlyIncome}/mo</span></div>
+                        <div class="flex justify-between"><span>Platforms</span><span class="font-medium">${w.platforms.join(', ')}</span></div>
+                    </div>
+                </div>
+                <button onclick="launchDemo('${w.id}', 'worker')" class="w-full bg-primary/10 text-primary font-semibold text-xs py-2.5 rounded-xl hover:bg-primary hover:text-white transition-all">
+                    Launch Worker Persona
+                </button>
+            `;
+            grid.appendChild(card);
         });
-    </script>
-</body></html>
+    } catch(err) {
+        console.log('Error loading demo personas:', err);
+    }
+}
+
+async function launchDemo(id, role) {
+    try {
+        const res = await GigCreditAPI.switchDemoAccount(id, role);
+        GigCreditAPI.saveSession(res.token, res.role, res.user);
+        window.location.href = role === 'lender' ? 'lender.html' : 'worker.html';
+    } catch(err) {
+        alert('Could not switch demo account');
+    }
+}
+
+loadDemoPersonas();
+</script>
+</body>
+</html>

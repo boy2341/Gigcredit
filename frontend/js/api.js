@@ -131,16 +131,39 @@ const GigCreditAPI = (() => {
     addMoney: (amount) => request('/wallet/add-money', { method: 'POST', body: { amount } }),
     withdraw: (amount) => request('/wallet/withdraw', { method: 'POST', body: { amount } }),
 
-    // offers
-    getOffersForWorker: () => request('/offers/worker'),
-    acceptOffer: (id) => request(`/offers/${id}/accept`, { method: 'POST' }),
-    rejectOffer: (id) => request(`/offers/${id}/reject`, { method: 'POST' }),
-    createOffer: (payload) => request('/offers', { method: 'POST', body: payload }),
-    getOffersByLender: () => request('/offers/lender'),
+    // 9-step Workflow & Indian AA Additions
+    fmtRupee: (n) => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`,
+    getDemoAccounts: () => request('/auth/demo-accounts', { auth: false }),
+    switchDemoAccount: (id, role) => request('/auth/switch-demo', { method: 'POST', body: { id, role }, auth: false }),
+    workerOTPLogin: (payload) => request('/auth/worker-otp-login', { method: 'POST', body: payload, auth: false }),
+    verifyAadhaarOTP: (payload) => request('/workers/verify-aadhaar-otp', { method: 'POST', body: payload }),
+    fetchAAData: (aaHandle) => request('/workers/aa/fetch', { method: 'POST', body: { aaHandle } }),
+    underwriteFullAnalysis: (payload) => request('/workers/underwrite-full-analysis', { method: 'POST', body: payload }),
+    simulatePayout: (amount = 1500, platformName = 'Swiggy') => request('/wallet/simulate-payout', { method: 'POST', body: { amount, platformName } }),
+    parseSMS: (smsBody) => request('/wallet/parse-sms', { method: 'POST', body: { smsBody } }),
+    requestBids: () => request('/offers/request-bids', { method: 'POST' }),
 
-    // loans
-    getWorkerLoans: () => request('/loans/worker'),
-    getLenderLoans: () => request('/loans/lender'),
-    repayLoan: (id, amount) => request(`/loans/${id}/repay`, { method: 'POST', body: { amount } }),
+    // Global Toast Notification System
+    showToast: (message, type = 'info') => {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.appendChild(container);
+      }
+
+      const toast = document.createElement('div');
+      toast.className = `toast-message ${type}`;
+      const icon = type === 'success' ? 'check_circle' : type === 'error' ? 'error' : 'info';
+      toast.innerHTML = `<span class="material-symbols-outlined text-[20px] ${type === 'success' ? 'text-emerald-600' : 'text-primary'}">${icon}</span> <span>${message}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    },
   };
 })();

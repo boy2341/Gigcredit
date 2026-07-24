@@ -38,9 +38,14 @@ function calculateGigScore({ platforms = [], accountAgeMonths = 1 }) {
   const weightedTotal = earningsScore + ratingScore + reliabilityScore + tenureScore; // 0-1
   const score = Math.round(300 + weightedTotal * 600); // 300-900
 
-  let riskTier = 'High Risk';
-  if (score >= 750) riskTier = 'Low Risk';
-  else if (score >= 600) riskTier = 'Medium Risk';
+  let riskTier = 'Starter (Higher Risk)';
+  if (score >= 740) riskTier = 'Prime (Low Risk)';
+  else if (score >= 620) riskTier = 'Standard (Medium Risk)';
+
+  // Calculate Underwriting Engine Metrics (Step 3)
+  const incomeVelocity = round2(8 + earningsFactor * 12 + (platforms.length > 2 ? 4 : 0)); // % growth
+  const stabilityIndex = Math.round(60 + earningsFactor * 25 + tenureFactor * 15); // 0-100
+  const operationalTrust = Math.round(ratingFactor * 60 + reliabilityFactor * 40); // 0-100
 
   return {
     score: Math.min(Math.max(score, 300), 900),
@@ -50,9 +55,18 @@ function calculateGigScore({ platforms = [], accountAgeMonths = 1 }) {
       reliabilityScore: Math.round(reliabilityScore * 600),
       tenureScore: Math.round(tenureScore * 600),
     },
+    underwritingMetrics: {
+      multiAppIncomeVelocity: incomeVelocity,
+      incomeStabilityIndex: stabilityIndex,
+      operationalTrustScore: operationalTrust,
+      loginConsistencyDays: Math.min(20 + Math.round(tenureFactor * 8), 30),
+      avgDailyHours: round2(6 + earningsFactor * 3),
+    },
     riskTier,
   };
 }
+
+const round2 = (n) => Math.round(n * 100) / 100;
 
 /** Rough monthly income eligible for lending purposes = sum of connected platform earnings */
 function calculateMonthlyIncome(platforms = []) {

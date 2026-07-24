@@ -1,399 +1,293 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GigCredit - Lender Dashboard</title>
+<title>GigCredit - Institutional Lender Portal</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "inverse-surface": "#263143",
-                      "secondary": "#006c49",
-                      "surface-bright": "#f9f9ff",
-                      "on-primary-fixed-variant": "#003ea8",
-                      "secondary-fixed-dim": "#4edea3",
-                      "on-primary": "#ffffff",
-                      "on-surface-variant": "#434655",
-                      "tertiary-fixed": "#ffddb8",
-                      "on-error": "#ffffff",
-                      "tertiary-fixed-dim": "#ffb95f",
-                      "surface-dim": "#cfdaf2",
-                      "on-error-container": "#93000a",
-                      "on-primary-fixed": "#00174b",
-                      "background": "#f9f9ff",
-                      "surface-container-lowest": "#ffffff",
-                      "tertiary-container": "#996100",
-                      "outline-variant": "#c3c6d7",
-                      "secondary-fixed": "#6ffbbe",
-                      "surface-container-low": "#f0f3ff",
-                      "on-tertiary-fixed": "#2a1700",
-                      "error-container": "#ffdad6",
-                      "tertiary": "#784b00",
-                      "on-surface": "#111c2d",
-                      "on-secondary": "#ffffff",
-                      "surface-container": "#e7eeff",
-                      "on-background": "#111c2d",
-                      "on-secondary-fixed": "#002113",
-                      "on-secondary-fixed-variant": "#005236",
-                      "surface-tint": "#0053db",
-                      "inverse-primary": "#b4c5ff",
-                      "on-primary-container": "#eeefff",
-                      "on-tertiary-container": "#ffeedd",
-                      "surface-container-high": "#dee8ff",
-                      "secondary-container": "#6cf8bb",
-                      "surface": "#f9f9ff",
-                      "primary": "#004ac6",
-                      "primary-fixed": "#dbe1ff",
-                      "surface-container-highest": "#d8e3fb",
-                      "on-tertiary": "#ffffff",
-                      "error": "#ba1a1a",
-                      "outline": "#737686",
-                      "primary-fixed-dim": "#b4c5ff",
-                      "on-tertiary-fixed-variant": "#653e00",
-                      "surface-variant": "#d8e3fb",
-                      "inverse-on-surface": "#ecf1ff",
-                      "on-secondary-container": "#00714d",
-                      "primary-container": "#2563eb"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "2xl": "48px",
-                      "container-max": "1280px",
-                      "lg": "24px",
-                      "unit": "4px",
-                      "md": "16px",
-                      "sm": "8px",
-                      "3xl": "64px",
-                      "xs": "4px",
-                      "gutter": "24px",
-                      "xl": "32px"
-              },
-              "fontFamily": {
-                      "body-lg": [
-                              "Inter"
-                      ],
-                      "headline-lg-mobile": [
-                              "Hanken Grotesk"
-                      ],
-                      "title-lg": [
-                              "Inter"
-                      ],
-                      "headline-lg": [
-                              "Hanken Grotesk"
-                      ],
-                      "headline-md": [
-                              "Hanken Grotesk"
-                      ],
-                      "display-lg": [
-                              "Hanken Grotesk"
-                      ],
-                      "body-md": [
-                              "Inter"
-                      ],
-                      "label-md": [
-                              "Inter"
-                      ],
-                      "data-mono": [
-                              "JetBrains Mono"
-                      ]
-              },
-              "fontSize": {
-                      "body-lg": [
-                              "16px",
-                              {
-                                      "lineHeight": "24px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "headline-lg-mobile": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "title-lg": [
-                              "18px",
-                              {
-                                      "lineHeight": "28px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "headline-lg": [
-                              "32px",
-                              {
-                                      "lineHeight": "40px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "headline-md": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "display-lg": [
-                              "48px",
-                              {
-                                      "lineHeight": "56px",
-                                      "letterSpacing": "-0.02em",
-                                      "fontWeight": "700"
-                              }
-                      ],
-                      "body-md": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "label-md": [
-                              "12px",
-                              {
-                                      "lineHeight": "16px",
-                                      "letterSpacing": "0.01em",
-                                      "fontWeight": "500"
-                              }
-                      ],
-                      "data-mono": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "500"
-                              }
-                      ]
-              }
-      },
-          },
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#004ac6",
+                        secondary: "#006c49",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#111c2d",
+                        "on-surface-variant": "#434655",
+                        "outline-variant": "#c3c6d7",
+                        background: "#f9f9ff",
+                    },
+                    fontFamily: {
+                        body: ["Inter"],
+                        headline: ["Hanken Grotesk"],
+                        mono: ["JetBrains Mono"]
+                    }
+                }
+            }
         }
-      </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .material-symbols-outlined[data-weight="fill"] {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+    </script>
 </head>
-<body class="bg-background text-on-surface font-body-md antialiased flex h-screen overflow-hidden">
-<!-- SideNavBar -->
-<nav class="bg-surface h-screen w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col p-md gap-sm hidden md:flex z-50">
-<div class="mb-xl flex flex-col items-center gap-sm mt-md">
-<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-outline-variant shadow-sm bg-surface-container-low">
-<img alt="Lender Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a financial lender wearing a crisp blue dress shirt, looking confidently at the camera. The background is a blurred, bright modern office setting. The lighting is soft and natural, creating a trustworthy and premium fintech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPOxuXTC_B6sebO5DKmgEQskb62c0lNkuRDojU9jo2A3L7e1PniF0f3ngO0hf2XiahCH_SALDc-qNCBt5To48is6pqgaTqTXTA2cOVWujyYL97Q9ZpxWyGKqrpQ7sBk-ZFthVE3mjnVOyhr_CsmU6eIXmUSqZQn31QknJfC0XeJ2RVY_OiRJJ0zB1iNfNt7mL0gtRviLi7cB9MC_6njaHbl7ETBOkkH6W0cFE0B0HwoDqWkdEmll5BIA"/>
+<body class="font-body antialiased bg-background overflow-x-hidden">
+
+<!-- Top Header Navigation -->
+<nav class="h-16 bg-white/90 backdrop-blur-md border-b border-outline-variant fixed top-0 left-0 right-0 z-50 px-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-emerald-700 text-white font-bold flex items-center justify-center text-sm shadow-md">L</div>
+<span class="font-headline font-extrabold text-xl text-gradient-emerald">GigCredit Lender Portal</span>
+<span class="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">RBI REGISTERED NBFC</span>
 </div>
-<div class="text-center">
-<h2 class="text-title-lg font-title-lg text-primary" id="sidebar-institution">Lender Portal</h2>
-<p class="text-label-md font-label-md text-on-surface-variant" id="sidebar-portfolio">Active Portfolio: $0</p>
+
+<!-- Profile Switcher Dropdown Button -->
+<div class="relative">
+<button class="flex items-center gap-3 px-3 py-1.5 rounded-xl border border-slate-200 hover:border-emerald-600 bg-slate-50 transition-all" id="profile-switcher-btn" onclick="toggleProfileSwitcher()">
+<img class="w-7 h-7 rounded-full object-cover border border-emerald-600/30" id="header-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80"/>
+<div class="text-left hidden sm:block">
+<div class="text-xs font-bold text-on-surface leading-tight" id="header-user-name">Bharat Gig Finance Ltd.</div>
+<div class="text-[10px] text-emerald-700 font-semibold font-mono" id="header-user-inst">RBI Reg: NBFC-RBI-N.14.03290</div>
 </div>
-</div>
-<div class="flex-1 flex flex-col gap-sm">
-<a aria-current="page" class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container hover:bg-surface-container-low transition-all" href="#">
-<span class="material-symbols-outlined" data-weight="fill">space_dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
-<span class="material-symbols-outlined">hub</span>
-<span class="font-label-md text-label-md">Marketplace</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
-<span class="material-symbols-outlined">pie_chart</span>
-<span class="font-label-md text-label-md">Portfolio</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
-<span class="material-symbols-outlined">insights</span>
-<span class="font-label-md text-label-md">Analytics</span>
-</a>
-<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="font-label-md text-label-md">Settings</span>
-</a>
-</div>
-<div class="mt-auto border-t border-outline-variant pt-md">
-<button class="w-full flex items-center justify-center gap-sm px-md py-sm text-on-surface-variant hover:text-error transition-colors" id="logout-btn">
-<span class="material-symbols-outlined">logout</span>
-<span class="font-label-md text-label-md">Sign Out</span>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">expand_more</span>
 </button>
+
+<div class="profile-switcher-dropdown p-3 space-y-2 shadow-2xl" id="profile-switcher-menu">
+<div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2">Switch Demo Persona</div>
+<div class="space-y-1" id="switcher-items-list">
+<p class="text-xs text-slate-400 p-2">Loading profiles...</p>
+</div>
+<div class="pt-2 border-t border-slate-100 flex justify-between px-2 text-xs">
+<a class="text-rose-600 font-semibold cursor-pointer hover:underline" id="logout-btn">Sign Out</a>
+</div>
+</div>
 </div>
 </nav>
-<!-- Main Content Area -->
-<main class="flex-1 ml-0 md:ml-64 overflow-y-auto bg-background p-md md:p-xl lg:p-2xl flex flex-col gap-2xl scroll-smooth">
-<!-- Header -->
-<header class="flex justify-between items-end pb-lg border-b border-outline-variant">
+
+<div class="flex pt-16 min-h-screen">
+<!-- Sidebar -->
+<aside class="hidden md:flex w-64 border-r border-outline-variant bg-white flex-col p-4 fixed left-0 top-16 bottom-0 z-40">
+<div class="space-y-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-emerald-50 text-emerald-800 font-bold text-xs" href="#">
+<span class="material-symbols-outlined text-[20px]">space_dashboard</span> Portfolio Dashboard
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-slate-50 font-medium text-xs transition-colors" href="#marketplace-section">
+<span class="material-symbols-outlined text-[20px]">hub</span> Underwritten Worker Market
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-on-surface-variant hover:bg-slate-50 font-medium text-xs transition-colors" href="#flywheel-section">
+<span class="material-symbols-outlined text-[20px]">insights</span> Data Flywheel Yield
+</a>
+</div>
+
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+<span class="font-bold text-slate-700 block">RBI NBFC Registered</span>
+<span class="font-mono text-[11px] text-emerald-700 font-semibold block" id="sidebar-nbfc-no">NBFC-RBI-N.14.03290</span>
+<span class="text-[10px] text-emerald-600 font-semibold block">✓ HDFC Escrow Trust Partner</span>
+</div>
+</aside>
+
+<!-- Main Area -->
+<main class="w-full md:ml-64 p-6 sm:p-8 max-w-7xl mx-auto space-y-8">
+
+<!-- Header & Step 9 Flywheel Banner -->
+<div class="glass-card rounded-2xl p-6 border border-outline-variant space-y-4" id="flywheel-section">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
 <div>
-<h1 class="text-display-lg font-display-lg text-on-surface mb-sm">Dashboard Overview</h1>
-<p class="text-body-lg font-body-lg text-on-surface-variant" id="lender-welcome">Welcome back. Here is the latest on your lending portfolio.</p>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Step 9 Institutional Flywheel</span>
+<h1 class="text-2xl font-headline font-extrabold text-on-surface mt-2">
+Institutional Yield &amp; Risk Dashboard
+</h1>
+<p class="text-xs text-slate-500 mt-1" id="welcome-sub">Near-zero default rates (0.4%) driven by closed-loop escrow micro-EMIs enable cheaper institutional capital deployment.</p>
 </div>
-<div class="hidden sm:flex gap-sm">
-<button class="bg-surface-container-lowest border border-outline-variant text-on-surface px-md py-sm rounded-lg font-label-md text-label-md hover:border-primary transition-all flex items-center gap-xs shadow-sm" id="export-btn">
-<span class="material-symbols-outlined text-[18px]">download</span> Export Report
-                </button>
-<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity shadow-sm flex items-center gap-xs" id="new-investment-btn">
-<span class="material-symbols-outlined text-[18px]">add</span> New Investment
-                </button>
+<button class="bg-primary text-white font-semibold text-xs px-5 py-2.5 rounded-xl hover:bg-blue-700 shadow-md shadow-primary/20" onclick="openOfferModal()">
++ Dispatch Custom Loan Offer
+</button>
 </div>
-</header>
-<!-- KPIs Grid -->
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
-<!-- KPI 1 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md">
-<div class="flex justify-between items-start">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Applicants</span>
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[18px]">group</span>
+
+<!-- KPIs -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[11px] font-bold text-slate-500 uppercase">Capital Deployed (₹)</span>
+<div class="text-2xl font-bold font-mono text-on-surface mt-1" id="kpi-capital">₹1,25,00,000</div>
+<span class="text-[10px] text-emerald-600 font-semibold">Active Escrow Exposure</span>
+</div>
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[11px] font-bold text-slate-500 uppercase">Escrow Collection Rate</span>
+<div class="text-2xl font-bold font-mono text-emerald-600 mt-1" id="kpi-collection">99.6%</div>
+<span class="text-[10px] text-slate-500 font-medium">Near-Zero Default Rate</span>
+</div>
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[11px] font-bold text-slate-500 uppercase">Active Applicants</span>
+<div class="text-2xl font-bold font-mono text-on-surface mt-1" id="kpi-workers">6 Workers</div>
+<span class="text-[10px] text-blue-600 font-semibold">AA &amp; SMS Ingested</span>
+</div>
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[11px] font-bold text-slate-500 uppercase">Target Net APY Yield</span>
+<div class="text-2xl font-bold font-mono text-emerald-600 mt-1">14.2%</div>
+<span class="text-[10px] text-emerald-600 font-semibold">Institutional Grade</span>
 </div>
 </div>
+</div>
+
+<!-- Underwritten Worker Marketplace Table -->
+<div class="glass-card rounded-2xl p-6 border border-outline-variant space-y-6" id="marketplace-section">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
 <div>
-<div class="text-headline-lg font-headline-lg text-on-surface" id="kpi-applicants">--</div>
-<div class="flex items-center gap-xs text-secondary mt-xs">
-<span class="material-symbols-outlined text-[16px]">trending_up</span>
-<span class="font-label-md text-label-md">Total registered workers</span>
+<h3 class="text-xl font-bold font-headline text-on-surface">Underwritten Worker Marketplace</h3>
+<p class="text-xs text-slate-500">Step 4 &amp; 5: Review AA bank statements, SMS payout alerts, and daily micro-EMI parameters.</p>
 </div>
+<input class="px-4 py-2 border border-slate-200 rounded-xl text-xs outline-none focus:border-primary w-full sm:w-64" id="worker-search" placeholder="Search by name, city, platform..." type="text"/>
 </div>
-</div>
-<!-- KPI 2 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md">
-<div class="flex justify-between items-start">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Money Lent</span>
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[18px]">account_balance</span>
-</div>
-</div>
-<div>
-<div class="text-headline-lg font-headline-lg text-on-surface font-data-mono" id="kpi-money-lent">$0</div>
-<div class="flex items-center gap-xs text-secondary mt-xs">
-<span class="material-symbols-outlined text-[16px]">trending_up</span>
-<span class="font-label-md text-label-md">Across your active loans</span>
-</div>
-</div>
-</div>
-<!-- KPI 3 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md">
-<div class="flex justify-between items-start">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Loans</span>
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[18px]">receipt_long</span>
-</div>
-</div>
-<div>
-<div class="text-headline-lg font-headline-lg text-on-surface font-data-mono" id="kpi-active-loans">0</div>
-<div class="flex items-center gap-xs text-on-surface-variant mt-xs">
-<span class="material-symbols-outlined text-[16px]">horizontal_rule</span>
-<span class="font-label-md text-label-md" id="kpi-outstanding">$0 outstanding</span>
-</div>
-</div>
-</div>
-<!-- KPI 4 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-md relative overflow-hidden">
-<div class="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
-<div class="flex justify-between items-start relative z-10">
-<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Collection Rate</span>
-<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-secondary-fixed-variant">
-<span class="material-symbols-outlined text-[18px]">verified</span>
-</div>
-</div>
-<div class="relative z-10">
-<div class="text-headline-lg font-headline-lg text-secondary font-data-mono" id="kpi-collection-rate">100%</div>
-<div class="flex items-center gap-xs text-secondary mt-xs">
-<span class="material-symbols-outlined text-[16px]">trending_up</span>
-<span class="font-label-md text-label-md">Of repayments collected</span>
-</div>
-</div>
-</div>
-<!-- Worker Marketplace -->
-<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
-<div class="flex justify-between items-center mb-lg">
-<div>
-<h2 class="text-title-lg font-title-lg text-on-surface">Worker Marketplace</h2>
-<p class="font-label-md text-label-md text-on-surface-variant mt-xs">Review applicants and extend loan offers</p>
-</div>
-<input class="border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim" id="worker-search" placeholder="Search by name or email" type="text"/>
-</div>
+
 <div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
+<table class="w-full text-left border-collapse text-xs">
 <thead>
-<tr class="border-b border-outline-variant">
-<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Worker</th>
-<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">GigCredit Score</th>
-<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Monthly Income</th>
-<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Eligibility</th>
-<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Risk</th>
-<th class="py-sm px-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"></th>
+<tr class="border-b border-slate-200 text-slate-400 font-bold uppercase text-[10px] tracking-wider">
+<th class="py-3 px-3">Worker Persona</th>
+<th class="py-3 px-3">GigScore</th>
+<th class="py-3 px-3">Verified Monthly Income (₹)</th>
+<th class="py-3 px-3">AA &amp; Velocity</th>
+<th class="py-3 px-3">Daily Micro-EMI</th>
+<th class="py-3 px-3 text-right">Action</th>
 </tr>
 </thead>
-<tbody id="workers-table-body">
-<tr><td class="py-md px-sm font-body-md text-body-md text-on-surface-variant" colspan="6">Loading applicants...</td></tr>
+<tbody id="workers-table-body" class="divide-y divide-slate-100">
+<tr><td colspan="6" class="py-4 text-center text-slate-400">Loading underwritten applicants...</td></tr>
 </tbody>
 </table>
 </div>
-</section>
-
-<!-- Recent Loans -->
-<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
-<h2 class="text-title-lg font-title-lg text-on-surface mb-md">Your Loan Portfolio</h2>
-<div class="space-y-md" id="lender-loans-list">
-<p class="font-body-md text-body-md text-on-surface-variant">Loading loans...</p>
 </div>
-</section>
 
-<!-- Status banner -->
-<div class="hidden bg-error-container text-on-error-container rounded-xl p-md font-body-md text-body-md" id="status-banner"></div>
+<!-- Active Loan Portfolio -->
+<div class="glass-card rounded-2xl p-6 border border-outline-variant space-y-4">
+<h3 class="text-lg font-bold font-headline text-on-surface">Institutional Portfolio Loans</h3>
+<div class="space-y-3" id="lender-loans-container">
+<p class="text-xs text-slate-400">Loading portfolio loans...</p>
+</div>
+</div>
+
 </main>
+</div>
 
-<!-- New Investment / Offer Modal -->
-<div class="hidden fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-[100] flex items-center justify-center p-md" id="offer-modal">
-<div class="bg-surface-container-lowest rounded-xl shadow-lg max-w-md w-full p-lg">
-<div class="flex justify-between items-center mb-md">
-<h3 class="text-title-lg font-title-lg text-on-surface">Make a Loan Offer</h3>
-<button class="text-on-surface-variant hover:text-error" id="offer-modal-close"><span class="material-symbols-outlined">close</span></button>
-</div>
-<p class="hidden font-body-md text-body-md text-error mb-sm" id="offer-modal-error"></p>
-<div class="space-y-md">
+<!-- Detailed Underwriting Analysis Modal for Lender -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4" id="worker-detail-modal">
+<div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+<div class="flex justify-between items-center border-b border-slate-100 pb-3">
 <div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Worker</label>
-<select class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-worker-select"></select>
+<span class="text-[10px] font-bold uppercase text-emerald-700 font-mono">Underwriting Risk Analysis</span>
+<h3 class="font-bold font-headline text-on-surface text-xl" id="modal-worker-name">Ramesh Kumar</h3>
+</div>
+<button class="text-slate-400 hover:text-slate-700" onclick="closeWorkerDetailModal()"><span class="material-symbols-outlined">close</span></button>
+</div>
+
+<div class="space-y-4 text-xs">
+<!-- Grid Summary -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[10px] font-bold text-slate-400 block font-mono">GIGSCORE</span>
+<span class="text-lg font-bold font-mono text-primary" id="modal-score">843</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[10px] font-bold text-slate-400 block font-mono">VERIFIED INCOME</span>
+<span class="text-lg font-bold font-mono text-slate-800" id="modal-income">₹44,496</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[10px] font-bold text-slate-400 block font-mono">APPROVED LINE</span>
+<span class="text-lg font-bold font-mono text-emerald-600" id="modal-credit-line">₹1,56,000</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-[10px] font-bold text-slate-400 block font-mono">DAILY AUTO EMI</span>
+<span class="text-lg font-bold font-mono text-emerald-600" id="modal-daily-emi">₹447 / day</span>
+</div>
+</div>
+
+<!-- Personal & KYC Info -->
+<div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+<h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px]">Worker Profile &amp; KYC Identification</h4>
+<div class="grid grid-cols-2 gap-2 text-slate-600">
+<div>City &amp; Vehicle: <strong class="text-slate-800" id="modal-city-vehicle">Delhi NCR • EV Scooter</strong></div>
+<div>UPI ID: <strong class="text-primary font-mono" id="modal-upi">ramesh@okaxis</strong></div>
+<div>PAN Verification: <strong class="text-slate-800" id="modal-pan">ABCDE1000F (Verified)</strong></div>
+<div>Aadhaar Masked: <strong class="text-slate-800" id="modal-aadhaar">•••• •••• 9920</strong></div>
+</div>
+</div>
+
+<!-- Account Aggregator & SMS Ingestion -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="p-4 bg-emerald-50/50 rounded-2xl border border-emerald-200 space-y-2">
+<span class="text-[10px] font-bold uppercase text-emerald-800 font-mono">ACCOUNT AGGREGATOR (AA)</span>
+<div class="font-bold text-slate-800 text-xs" id="modal-aa-handle">ramesh@finvu</div>
+<div class="text-[11px] text-slate-500">Provider: Finvu AA Rails (RBI Approved)</div>
+<div class="text-[11px] text-emerald-700 font-semibold font-mono">Avg Balance: ₹24,800 • Deposit Index: 96%</div>
+</div>
+<div class="p-4 bg-blue-50/50 rounded-2xl border border-blue-200 space-y-2">
+<span class="text-[10px] font-bold uppercase text-blue-800 font-mono">SMS SCRAPING LOGS</span>
+<div class="font-bold text-slate-800 text-xs">14 Ingested Payout Alerts</div>
+<div class="text-[11px] text-slate-500 font-mono" id="modal-sms-sample">Alert: Swiggy weekly payout of ₹4,850 credited to HDFC Escrow.</div>
+</div>
+</div>
+
+<!-- Connected Platforms -->
+<div class="space-y-2">
+<h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px]">Connected Work Accounts &amp; Earnings</h4>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="modal-platforms-grid"></div>
+</div>
+
+<button class="w-full bg-emerald-700 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-emerald-800 shadow-md shadow-emerald-700/20 transition-all" id="modal-dispatch-btn">
+⚡ Dispatch Custom Loan Offer to Worker
+</button>
+</div>
+</div>
+</div>
+
+<!-- Send Loan Offer Modal -->
+<div class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4" id="offer-modal">
+<div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+<div class="flex justify-between items-center">
+<h3 class="font-bold font-headline text-on-surface text-lg">Issue Programmatic Loan Offer</h3>
+<button class="text-slate-400 hover:text-slate-700" onclick="closeOfferModal()"><span class="material-symbols-outlined">close</span></button>
+</div>
+<p class="text-xs text-slate-500">Capital will be escrow-protected with daily source micro-EMI deduction.</p>
+<div class="space-y-3 text-xs">
+<div>
+<label class="block font-semibold mb-1">Target Worker</label>
+<select class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none" id="offer-worker-select"></select>
 </div>
 <div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Offer Title</label>
-<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-title" placeholder="e.g. Working Capital Loan" type="text"/>
+<label class="block font-semibold mb-1">Offer Title</label>
+<input class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none" id="offer-title" placeholder="Working Capital &amp; Fleet Loan" type="text"/>
 </div>
-<div class="grid grid-cols-2 gap-md">
+<div class="grid grid-cols-2 gap-3">
 <div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Amount ($)</label>
-<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-amount" min="100" type="number"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Interest Rate (%)</label>
-<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-rate" min="1" step="0.1" type="number"/>
-</div>
+<label class="block font-semibold mb-1">Amount (₹)</label>
+<input class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none" id="offer-amount" type="number" value="45000"/>
 </div>
 <div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Tenure (months)</label>
-<input class="w-full border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md" id="offer-tenure" min="1" type="number"/>
+<label class="block font-semibold mb-1">Interest Rate (% APR)</label>
+<input class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none" id="offer-rate" type="number" value="8.5"/>
 </div>
-<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-md py-sm hover:opacity-90 transition-opacity" id="offer-submit">Send Offer</button>
+</div>
+<div>
+<label class="block font-semibold mb-1">Tenure (Months)</label>
+<input class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none" id="offer-tenure" type="number" value="12"/>
+</div>
+<button class="w-full bg-emerald-700 text-white font-semibold py-3 rounded-xl hover:bg-emerald-800" onclick="submitOffer()">Dispatch Bid Offer</button>
 </div>
 </div>
 </div>
 
 <script src="js/api.js"></script>
 <script src="js/lender.js"></script>
-</body></html>
+<script>
+function toggleProfileSwitcher() {
+    document.getElementById('profile-switcher-menu').classList.toggle('show');
+}
+window.addEventListener('click', (e) => {
+    if (!e.target.closest('#profile-switcher-btn') && !e.target.closest('#profile-switcher-menu')) {
+        document.getElementById('profile-switcher-menu').classList.remove('show');
+    }
+});
+</script>
+</body>
+</html>

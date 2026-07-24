@@ -139,4 +139,39 @@ const rejectOffer = async (req, res, next) => {
   }
 };
 
-module.exports = { getOffersForWorker, createOffer, getOffersByLender, acceptOffer, rejectOffer };
+// @desc POST /api/offers/request-bids (worker)
+// Step 5: Reverse-Auction Compete Bidding - NBFCs bid programmatically matching risk profile in < 60 seconds
+const requestReverseAuctionBids = async (req, res, next) => {
+  try {
+    const worker = req.user;
+    const { generateReverseAuctionBids } = require('../utils/mockData');
+    const { calculateMonthlyIncome } = require('../utils/gigScore');
+
+    const monthlyIncome = calculateMonthlyIncome(worker.connectedPlatforms || []);
+    const bids = generateReverseAuctionBids({ score: worker.gigCreditScore || 700, monthlyIncome: monthlyIncome || 1200 });
+
+    // Save one bid as an official available LoanOffer
+    const winningBid = bids[0];
+    const newOffer = await LoanOffer.create({
+      title: `${winningBid.lenderName} Reverse-Auction Match`,
+      worker: worker._id,
+      source: 'system',
+      amount: winningBid.bidAmount,
+      interestRate: winningBid.offeredRate,
+      tenureMonths: winningBid.tenureMonths,
+      purpose: 'Competitive auction rate unlocked via Escrow guarantee',
+      status: 'available',
+    });
+
+    res.json({
+      success: true,
+      message: `Reverse auction complete! 3 NBFC lenders submitted bids in 24 seconds. Lowest rate: ${winningBid.offeredRate}%.`,
+      bids,
+      unlockedOffer: newOffer,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getOffersForWorker, createOffer, getOffersByLender, acceptOffer, rejectOffer, requestReverseAuctionBids };

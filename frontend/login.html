@@ -1,385 +1,273 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GigCredit - Login</title>
+<title>GigCredit - Worker OTP Sign In</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "inverse-surface": "#263143",
-                      "secondary": "#006c49",
-                      "surface-bright": "#f9f9ff",
-                      "on-primary-fixed-variant": "#003ea8",
-                      "secondary-fixed-dim": "#4edea3",
-                      "on-primary": "#ffffff",
-                      "on-surface-variant": "#434655",
-                      "tertiary-fixed": "#ffddb8",
-                      "on-error": "#ffffff",
-                      "tertiary-fixed-dim": "#ffb95f",
-                      "surface-dim": "#cfdaf2",
-                      "on-error-container": "#93000a",
-                      "on-primary-fixed": "#00174b",
-                      "background": "#f9f9ff",
-                      "surface-container-lowest": "#ffffff",
-                      "tertiary-container": "#996100",
-                      "outline-variant": "#c3c6d7",
-                      "secondary-fixed": "#6ffbbe",
-                      "surface-container-low": "#f0f3ff",
-                      "on-tertiary-fixed": "#2a1700",
-                      "error-container": "#ffdad6",
-                      "tertiary": "#784b00",
-                      "on-surface": "#111c2d",
-                      "on-secondary": "#ffffff",
-                      "surface-container": "#e7eeff",
-                      "on-background": "#111c2d",
-                      "on-secondary-fixed": "#002113",
-                      "on-secondary-fixed-variant": "#005236",
-                      "surface-tint": "#0053db",
-                      "inverse-primary": "#b4c5ff",
-                      "on-primary-container": "#eeefff",
-                      "on-tertiary-container": "#ffeedd",
-                      "surface-container-high": "#dee8ff",
-                      "secondary-container": "#6cf8bb",
-                      "surface": "#f9f9ff",
-                      "primary": "#004ac6",
-                      "primary-fixed": "#dbe1ff",
-                      "surface-container-highest": "#d8e3fb",
-                      "on-tertiary": "#ffffff",
-                      "error": "#ba1a1a",
-                      "outline": "#737686",
-                      "primary-fixed-dim": "#b4c5ff",
-                      "on-tertiary-fixed-variant": "#653e00",
-                      "surface-variant": "#d8e3fb",
-                      "inverse-on-surface": "#ecf1ff",
-                      "on-secondary-container": "#00714d",
-                      "primary-container": "#2563eb"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "2xl": "48px",
-                      "container-max": "1280px",
-                      "lg": "24px",
-                      "unit": "4px",
-                      "md": "16px",
-                      "sm": "8px",
-                      "3xl": "64px",
-                      "xs": "4px",
-                      "gutter": "24px",
-                      "xl": "32px"
-              },
-              "fontFamily": {
-                      "body-lg": [
-                              "Inter"
-                      ],
-                      "headline-lg-mobile": [
-                              "Hanken Grotesk"
-                      ],
-                      "title-lg": [
-                              "Inter"
-                      ],
-                      "headline-lg": [
-                              "Hanken Grotesk"
-                      ],
-                      "headline-md": [
-                              "Hanken Grotesk"
-                      ],
-                      "display-lg": [
-                              "Hanken Grotesk"
-                      ],
-                      "body-md": [
-                              "Inter"
-                      ],
-                      "label-md": [
-                              "Inter"
-                      ],
-                      "data-mono": [
-                              "JetBrains Mono"
-                      ]
-              },
-              "fontSize": {
-                      "body-lg": [
-                              "16px",
-                              {
-                                      "lineHeight": "24px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "headline-lg-mobile": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "title-lg": [
-                              "18px",
-                              {
-                                      "lineHeight": "28px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "headline-lg": [
-                              "32px",
-                              {
-                                      "lineHeight": "40px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "headline-md": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "display-lg": [
-                              "48px",
-                              {
-                                      "lineHeight": "56px",
-                                      "letterSpacing": "-0.02em",
-                                      "fontWeight": "700"
-                              }
-                      ],
-                      "body-md": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "label-md": [
-                              "12px",
-                              {
-                                      "lineHeight": "16px",
-                                      "letterSpacing": "0.01em",
-                                      "fontWeight": "500"
-                              }
-                      ],
-                      "data-mono": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "500"
-                              }
-                      ]
-              }
-      },
-          },
-        }
-      </script>
-</head>
-<body class="bg-background text-on-background font-body-md antialiased h-screen overflow-hidden">
-<div class="flex h-full w-full">
-<!-- Left Side: Branding / Illustration -->
-<div class="hidden lg:flex lg:w-1/2 relative bg-primary-fixed items-center justify-center overflow-hidden">
-<!-- Decorative Background Elements -->
-<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed to-surface-container opacity-50"></div>
-<div class="relative z-10 p-3xl text-center max-w-lg">
-<h1 class="font-display-lg text-display-lg text-on-primary-fixed mb-md">GigCredit</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">The premium financial platform connecting verified gig workers with reliable lending capital.</p>
-</div>
-<!-- Abstract Illustration Container (Image placeholder) -->
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover opacity-60 mix-blend-multiply" data-alt="A sophisticated, abstract 3D illustration of financial growth and data nodes. Glowing blue and green interconnected lines forming an upward-trending curve over a pristine white and soft blue background. The aesthetic is modern corporate fintech, conveying security, transparency, and high-tech algorithmic lending. High-end rendering, minimal clutter, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr0eZhl_8rr2q_zwL90kvaUb8ilH2YNyPrU3cZq9TxjHTbgsHNjaDc4cx06t-KgcrcGutxJ8n6MP-9JHrrvDqGhEJvMwL8uojJCTI_J9kQ5mRbdsaXOfwB_9maXmoyTLjbXc7VlHVpB1J1hfBzdanmFW0Tqvw-nVCrEKr32J1g0x3ZpzYlHHBfxTPb9uJR4tvouuKwJPXF1SQ2qzH4zVigFi4qcF1jSkzXOrNftQ6_npXCLMOuI7iiyA"/>
-</div>
-</div>
-<!-- Right Side: Login Options -->
-<div class="w-full lg:w-1/2 flex flex-col justify-center items-center p-md sm:p-xl bg-surface h-full overflow-y-auto">
-<div class="w-full max-w-md space-y-2xl pb-3xl">
-<!-- Mobile Logo -->
-<div class="lg:hidden text-center mb-xl">
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">GigCredit</h1>
-</div>
-<div class="space-y-sm text-center lg:text-left">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Welcome back</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Select your portal to continue.</p>
-</div>
-<div class="grid grid-cols-1 gap-lg">
-<!-- Worker Login Card -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 relative group cursor-pointer" onclick="toggleForm('worker')">
-<div class="absolute top-lg right-lg text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
-</div>
-<div class="flex items-center gap-md mb-md">
-<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
-</div>
-<div>
-<h3 class="font-title-lg text-title-lg text-on-surface">Worker Portal</h3>
-<p class="font-label-md text-label-md text-on-surface-variant">Access loans &amp; manage repayments</p>
-</div>
-</div>
-<!-- Hidden Form -->
-<div class="hidden mt-md space-y-md border-t border-outline-variant pt-md" id="worker-form" onclick="event.stopPropagation();">
-<p class="hidden font-body-md text-body-md text-error" id="worker-error"></p>
-<div class="hidden" id="worker-name-wrap">
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Full Name</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim text-body-md px-md py-sm transition-colors" id="worker-name" placeholder="Alex Rivera" type="text"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Email</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim text-body-md px-md py-sm transition-colors" id="worker-email" placeholder="worker@example.com" type="email"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Password</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim text-body-md px-md py-sm transition-colors" id="worker-password" placeholder="••••••••" type="password"/>
-</div>
-<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-md py-sm hover:bg-on-primary-fixed-variant transition-colors duration-150" id="worker-submit" onclick="handleAuth('worker')">Login as Worker</button>
-<p class="text-center font-label-md text-label-md text-on-surface-variant">
-<span id="worker-toggle-text">New here?</span> <a class="text-primary font-bold hover:underline" href="#" id="worker-toggle-link" onclick="toggleMode('worker'); return false;">Create an account</a>
-</p>
-</div>
-</div>
-<!-- Lender Login Card -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 relative group cursor-pointer" onclick="toggleForm('lender')">
-<div class="absolute top-lg right-lg text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
-</div>
-<div class="flex items-center gap-md mb-md">
-<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
-</div>
-<div>
-<h3 class="font-title-lg text-title-lg text-on-surface">Lender Portal</h3>
-<p class="font-label-md text-label-md text-on-surface-variant">Manage portfolio &amp; analytics</p>
-</div>
-</div>
-<!-- Hidden Form -->
-<div class="hidden mt-md space-y-md border-t border-outline-variant pt-md" id="lender-form" onclick="event.stopPropagation();">
-<p class="hidden font-body-md text-body-md text-error" id="lender-error"></p>
-<div class="hidden" id="lender-name-wrap">
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Full Name</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-secondary focus:ring-2 focus:ring-secondary-fixed-dim text-body-md px-md py-sm transition-colors" id="lender-name" placeholder="Jordan Blake" type="text"/>
-</div>
-<div class="hidden" id="lender-institution-wrap">
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Institution Name</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-secondary focus:ring-2 focus:ring-secondary-fixed-dim text-body-md px-md py-sm transition-colors" id="lender-institution" placeholder="Meridian Capital" type="text"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Corporate Email</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-secondary focus:ring-2 focus:ring-secondary-fixed-dim text-body-md px-md py-sm transition-colors" id="lender-email" placeholder="lender@institution.com" type="email"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface mb-xs">Password</label>
-<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md focus:border-secondary focus:ring-2 focus:ring-secondary-fixed-dim text-body-md px-md py-sm transition-colors" id="lender-password" placeholder="••••••••" type="password"/>
-</div>
-<button class="w-full bg-secondary text-on-secondary font-label-md text-label-md rounded-md py-sm hover:bg-on-secondary-container transition-colors duration-150" id="lender-submit" onclick="handleAuth('lender')">Login as Lender</button>
-<p class="text-center font-label-md text-label-md text-on-surface-variant">
-<span id="lender-toggle-text">New institution?</span> <a class="text-primary font-bold hover:underline" href="#" id="lender-toggle-link" onclick="toggleMode('lender'); return false;">Create an account</a>
-</p>
-</div>
-</div>
-</div>
-<div class="text-center mt-xl">
-<a class="font-body-md text-body-md text-primary hover:underline" href="#">Need help signing in?</a>
-</div>
-</div>
-</div>
-</div>
-<script src="js/api.js"></script>
-<script>
-        function toggleForm(type) {
-            const workerForm = document.getElementById('worker-form');
-            const lenderForm = document.getElementById('lender-form');
-
-            if (type === 'worker') {
-                workerForm.classList.remove('hidden');
-                lenderForm.classList.add('hidden');
-            } else {
-                lenderForm.classList.remove('hidden');
-                workerForm.classList.add('hidden');
-            }
-        }
-
-        // mode = 'login' | 'register', per role card
-        const modeState = { worker: 'login', lender: 'login' };
-
-        function toggleMode(role) {
-            modeState[role] = modeState[role] === 'login' ? 'register' : 'login';
-            const isRegister = modeState[role] === 'register';
-
-            document.getElementById(`${role}-name-wrap`).classList.toggle('hidden', !isRegister);
-            if (role === 'lender') {
-                document.getElementById('lender-institution-wrap').classList.toggle('hidden', !isRegister);
-            }
-
-            const submitBtn = document.getElementById(`${role}-submit`);
-            const roleLabel = role === 'worker' ? 'Worker' : 'Lender';
-            submitBtn.textContent = isRegister ? `Create ${roleLabel} Account` : `Login as ${roleLabel}`;
-
-            document.getElementById(`${role}-toggle-text`).textContent = isRegister ? 'Already have an account?' : (role === 'worker' ? 'New here?' : 'New institution?');
-            document.getElementById(`${role}-toggle-link`).textContent = isRegister ? 'Log in' : 'Create an account';
-
-            setError(role, '');
-        }
-
-        function setError(role, message) {
-            const el = document.getElementById(`${role}-error`);
-            el.textContent = message;
-            el.classList.toggle('hidden', !message);
-        }
-
-        async function handleAuth(role) {
-            const isRegister = modeState[role] === 'register';
-            const email = document.getElementById(`${role}-email`).value.trim();
-            const password = document.getElementById(`${role}-password`).value;
-            const submitBtn = document.getElementById(`${role}-submit`);
-
-            setError(role, '');
-
-            if (!email || !password) {
-                setError(role, 'Please enter both email and password.');
-                return;
-            }
-
-            submitBtn.disabled = true;
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = isRegister ? 'Creating account...' : 'Signing in...';
-
-            try {
-                let result;
-                if (isRegister) {
-                    const name = document.getElementById(`${role}-name`).value.trim();
-                    if (!name) throw new Error('Please enter your name.');
-                    const payload = { role, name, email, password };
-                    if (role === 'lender') {
-                        payload.institutionName = document.getElementById('lender-institution').value.trim() || 'Independent Lender';
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#004ac6",
+                        secondary: "#006c49",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#111c2d",
+                        "on-surface-variant": "#434655",
+                        "outline-variant": "#c3c6d7",
+                        background: "#f9f9ff",
+                    },
+                    fontFamily: {
+                        body: ["Inter"],
+                        headline: ["Hanken Grotesk"],
+                        mono: ["JetBrains Mono"]
                     }
-                    result = await GigCreditAPI.register(payload);
-                } else {
-                    result = await GigCreditAPI.login({ role, email, password });
                 }
-
-                GigCreditAPI.saveSession(result.token, result.role, result.user);
-                window.location.href = result.role === 'lender' ? 'lender.html' : 'worker.html';
-            } catch (err) {
-                setError(role, err.message || 'Something went wrong. Please try again.');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
             }
-        }
-
-        // If already logged in, skip straight to the right dashboard
-        if (GigCreditAPI.isLoggedIn()) {
-            window.location.href = GigCreditAPI.getRole() === 'lender' ? 'lender.html' : 'worker.html';
         }
     </script>
-</body></html>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex items-center justify-center p-4 sm:p-8">
+
+<div class="max-w-5xl w-full bg-white rounded-3xl border border-outline-variant shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[640px] animate-fade-in-up">
+
+<!-- Left Panel: One-Click Demo Personas -->
+<div class="lg:col-span-6 bg-slate-900 text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-indigo-950/60 to-slate-950 pointer-events-none"></div>
+
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg">G</div>
+<span class="text-2xl font-headline font-extrabold text-white">GigCredit</span>
+</div>
+
+<h2 class="text-2xl font-headline font-bold mb-2 text-white">Try Demo Profiles</h2>
+<p class="text-xs text-slate-300 mb-6">Click any demo worker or lender persona below to open their account instantly.</p>
+
+<!-- Demo Worker Switcher Cards -->
+<div class="space-y-3 max-h-[380px] overflow-y-auto pr-1" id="demo-cards-container">
+<p class="text-xs text-slate-400">Loading demo accounts...</p>
+</div>
+</div>
+
+<div class="relative z-10 pt-6 border-t border-slate-800 text-xs text-slate-400 flex justify-between items-center">
+<span>Instant demo login</span>
+<a class="text-primary font-semibold hover:underline" href="homepage.html">← Back to Home</a>
+</div>
+</div>
+
+<!-- Right Panel: Phone + Aadhaar OTP Authentication Form -->
+<div class="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-center bg-white">
+<div class="max-w-md w-full mx-auto space-y-6">
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-1" id="portal-heading">Worker OTP Sign In</h3>
+<p class="text-xs text-on-surface-variant" id="portal-subheading">Enter your Mobile Number &amp; Aadhaar Number to get an OTP code.</p>
+</div>
+
+<!-- Role Selector Tabs -->
+<div class="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl">
+<button class="py-2.5 rounded-lg text-xs font-bold transition-all bg-white text-primary shadow-sm" id="role-btn-worker" onclick="switchRoleTab('worker')">
+Worker OTP Sign In
+</button>
+<button class="py-2.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-primary" id="role-btn-lender" onclick="switchRoleTab('lender')">
+Lender Portal
+</button>
+</div>
+
+<!-- Error Alert -->
+<div class="hidden bg-rose-50 border border-rose-200 text-rose-700 p-3 rounded-xl text-xs font-medium" id="auth-error"></div>
+
+<!-- WORKER FORM: Phone + Aadhaar OTP -->
+<div class="space-y-4" id="worker-otp-form">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Mobile Number (+91)</label>
+<input class="w-full bg-slate-50 border border-outline-variant rounded-xl text-xs px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="worker-phone" placeholder="+91 98765 43210" type="tel" value="+91 98765 43210"/>
+</div>
+
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Aadhaar Number (12 Digits)</label>
+<input class="w-full bg-slate-50 border border-outline-variant rounded-xl text-xs px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none font-mono" id="worker-aadhaar" placeholder="1234 5678 9924" type="text" value="1234 5678 9924"/>
+</div>
+
+<button class="w-full bg-primary text-white font-semibold text-xs py-3.5 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-1.5" id="btn-send-worker-otp" onclick="handleSendWorkerOTP()">
+<span class="material-symbols-outlined text-[18px]">sms</span> Get OTP Code
+</button>
+
+<div class="space-y-3 pt-2 hidden" id="otp-verify-section">
+<div>
+<label class="block text-xs font-semibold text-emerald-800 mb-1 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Enter 6-Digit OTP (Test Code: <strong class="font-mono text-slate-900" id="suggested-otp">992410</strong>)
+</label>
+<input class="w-full bg-emerald-50/50 border border-emerald-300 rounded-xl text-sm px-4 py-3 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 outline-none font-mono text-center font-bold tracking-widest text-emerald-900" id="worker-otp" placeholder="992410" type="text" value="992410"/>
+</div>
+
+<button class="w-full bg-emerald-600 text-white font-bold text-xs py-3.5 rounded-xl hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20" onclick="handleVerifyWorkerOTP()">
+⚡ Verify OTP &amp; Sign In
+</button>
+</div>
+</div>
+
+<!-- LENDER FORM: Institutional Email Login -->
+<div class="space-y-4 hidden" id="lender-email-form">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Institutional Email</label>
+<input class="w-full bg-slate-50 border border-outline-variant rounded-xl text-xs px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="lender-email" placeholder="lender@institution.com" type="email" value="lender@institution.com"/>
+</div>
+
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Password</label>
+<input class="w-full bg-slate-50 border border-outline-variant rounded-xl text-xs px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="lender-password" placeholder="••••••••" type="password" value="password123"/>
+</div>
+
+<button class="w-full bg-emerald-700 text-white font-semibold text-xs py-3.5 rounded-xl hover:bg-emerald-800 transition-all shadow-md shadow-emerald-700/20" onclick="handleLenderLogin()">
+Sign In as Lender
+</button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script>
+let currentRole = 'worker';
+
+function switchRoleTab(role) {
+    currentRole = role;
+    document.getElementById('role-btn-worker').className = role === 'worker' ? 'py-2.5 rounded-lg text-xs font-bold transition-all bg-white text-primary shadow-sm' : 'py-2.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-primary';
+    document.getElementById('role-btn-lender').className = role === 'lender' ? 'py-2.5 rounded-lg text-xs font-bold transition-all bg-white text-emerald-700 shadow-sm' : 'py-2.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-primary';
+    
+    document.getElementById('portal-heading').textContent = role === 'worker' ? 'Worker OTP Sign In' : 'Lender Sign In';
+    document.getElementById('portal-subheading').textContent = role === 'worker' ? 'Enter Mobile Number and Aadhaar Number.' : 'Sign in with your registered lender email.';
+
+    document.getElementById('worker-otp-form').classList.toggle('hidden', role !== 'worker');
+    document.getElementById('lender-email-form').classList.toggle('hidden', role !== 'lender');
+    document.getElementById('auth-error').classList.add('hidden');
+}
+
+function handleSendWorkerOTP() {
+    const phone = document.getElementById('worker-phone').value.trim();
+    const aadhaar = document.getElementById('worker-aadhaar').value.trim();
+    const errorEl = document.getElementById('auth-error');
+    errorEl.classList.add('hidden');
+
+    if (!phone || !aadhaar) {
+        errorEl.textContent = 'Please enter both Mobile Number and Aadhaar Number.';
+        errorEl.classList.remove('hidden');
+        return;
+    }
+
+    document.getElementById('otp-verify-section').classList.remove('hidden');
+    document.getElementById('btn-send-worker-otp').textContent = '✓ OTP Code Sent';
+    document.getElementById('btn-send-worker-otp').className = 'w-full bg-slate-200 text-slate-700 font-semibold text-xs py-3.5 rounded-xl cursor-default';
+}
+
+async function handleVerifyWorkerOTP() {
+    const phone = document.getElementById('worker-phone').value.trim();
+    const aadhaar = document.getElementById('worker-aadhaar').value.trim();
+    const otp = document.getElementById('worker-otp').value.trim() || '992410';
+    const errorEl = document.getElementById('auth-error');
+    errorEl.classList.add('hidden');
+
+    try {
+        const res = await GigCreditAPI.workerOTPLogin({ phone, aadhaarNumber: aadhaar, otp });
+        GigCreditAPI.saveSession(res.token, 'worker', res.user);
+        window.location.href = 'worker.html?onboard=true';
+    } catch(err) {
+        errorEl.textContent = err.message || 'OTP verification failed.';
+        errorEl.classList.remove('hidden');
+    }
+}
+
+async function handleLenderLogin() {
+    const email = document.getElementById('lender-email').value.trim();
+    const password = document.getElementById('lender-password').value;
+    const errorEl = document.getElementById('auth-error');
+    errorEl.classList.add('hidden');
+
+    try {
+        const res = await GigCreditAPI.login({ role: 'lender', email, password });
+        GigCreditAPI.saveSession(res.token, 'lender', res.user);
+        window.location.href = 'lender.html';
+    } catch(err) {
+        errorEl.textContent = err.message || 'Lender authentication failed.';
+        errorEl.classList.remove('hidden');
+    }
+}
+
+async function loadDemoAccounts() {
+    try {
+        const data = await GigCreditAPI.getDemoAccounts();
+        const container = document.getElementById('demo-cards-container');
+        container.innerHTML = '';
+
+        // Worker personas
+        (data.workers || []).forEach(w => {
+            const card = document.createElement('div');
+            card.className = 'p-3 bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 rounded-xl flex items-center justify-between cursor-pointer transition-all hover:border-primary';
+            card.onclick = () => quickDemoLogin(w.id, 'worker');
+            card.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <img src="${w.avatarUrl}" class="w-9 h-9 rounded-full object-cover border border-slate-600"/>
+                    <div>
+                        <div class="text-xs font-bold text-white flex items-center gap-2">
+                            ${w.name}
+                            <span class="text-[10px] px-2 py-0.5 bg-emerald-500/20 text-emerald-400 font-mono rounded">Score ${w.gigCreditScore}</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">${w.tagline || 'Worker'} • ₹${Number(w.monthlyIncome || 0).toLocaleString('en-IN')}/mo</div>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-slate-400 text-[18px]">arrow_forward</span>
+            `;
+            container.appendChild(card);
+        });
+
+        // Lender personas
+        (data.lenders || []).forEach(l => {
+            const card = document.createElement('div');
+            card.className = 'p-3 bg-slate-800/80 hover:bg-slate-800 border border-emerald-500/30 rounded-xl flex items-center justify-between cursor-pointer transition-all hover:border-emerald-500';
+            card.onclick = () => quickDemoLogin(l.id, 'lender');
+            card.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <img src="${l.avatarUrl}" class="w-9 h-9 rounded-full object-cover border border-emerald-500/40"/>
+                    <div>
+                        <div class="text-xs font-bold text-white flex items-center gap-2">
+                            ${l.name}
+                            <span class="text-[10px] px-2 py-0.5 bg-blue-500/20 text-blue-400 font-mono rounded">Lender</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">${l.institutionName}</div>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-emerald-400 text-[18px]">arrow_forward</span>
+            `;
+            container.appendChild(card);
+        });
+    } catch(err) {
+        console.error('Error loading demo accounts:', err);
+    }
+}
+
+async function quickDemoLogin(id, role) {
+    try {
+        const res = await GigCreditAPI.switchDemoAccount(id, role);
+        GigCreditAPI.saveSession(res.token, res.role, res.user);
+        window.location.href = role === 'lender' ? 'lender.html' : 'worker.html';
+    } catch(err) {
+        alert('Could not authenticate demo persona.');
+    }
+}
+
+if (GigCreditAPI.isLoggedIn()) {
+    window.location.href = GigCreditAPI.getRole() === 'lender' ? 'lender.html' : 'worker.html';
+}
+
+loadDemoAccounts();
+</script>
+</body>
+</html>

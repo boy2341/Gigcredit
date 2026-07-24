@@ -7,9 +7,11 @@ const {
   getOffersByLender,
   acceptOffer,
   rejectOffer,
+  requestReverseAuctionBids,
 } = require('../controllers/offerController');
 
 router.get('/worker', protect, authorize('worker'), getOffersForWorker);
+router.post('/request-bids', protect, authorize('worker'), requestReverseAuctionBids);
 router.post('/:id/accept', protect, authorize('worker'), acceptOffer);
 router.post('/:id/reject', protect, authorize('worker'), rejectOffer);
 

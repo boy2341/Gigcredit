@@ -85,4 +85,115 @@ const getMe = async (req, res) => {
   res.json({ success: true, role: req.role, user: req.user.toSafeObject ? req.user.toSafeObject() : req.user });
 };
 
-module.exports = { register, login, getMe };
+// @desc  Get list of pre-seeded demo worker & lender accounts for quick switching
+// @route GET /api/auth/demo-accounts
+const getDemoAccounts = async (req, res, next) => {
+  try {
+    const workers = await Worker.find({}).select('-password');
+    const lenders = await Lender.find({}).select('-password');
+
+    const formattedWorkers = workers.map((w) => ({
+      id: w._id,
+      name: w.name,
+      email: w.email,
+      role: 'worker',
+      avatarUrl: w.avatarUrl,
+      tagline: w.tagline,
+      gigCreditScore: w.gigCreditScore,
+      riskTier: w.riskTier,
+      platforms: w.connectedPlatforms.map((p) => p.platform),
+      monthlyIncome: calculateMonthlyIncome(w.connectedPlatforms),
+    }));
+
+    const formattedLenders = lenders.map((l) => ({
+      id: l._id,
+      name: l.name,
+      email: l.email,
+      role: 'lender',
+      institutionName: l.institutionName,
+      avatarUrl: l.avatarUrl,
+      nbfcLicenseNo: l.nbfcLicenseNo,
+    }));
+
+    res.json({ success: true, workers: formattedWorkers, lenders: formattedLenders });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// @desc  Instantly switch to any demo account without password
+// @route POST /api/auth/switch-demo
+const switchDemoAccount = async (req, res, next) => {
+  try {
+    const { id, role } = req.body;
+    if (!id || !role || !['worker', 'lender'].includes(role)) {
+      return res.status(400).json({ success: false, message: 'Valid id and role are required' });
+    }
+
+    const Model = role === 'worker' ? Worker : Lender;
+    const user = await Model.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'Demo account not found' });
+    }
+
+    const token = generateToken(user._id, role);
+    res.json({ success: true, token, role, user: user.toSafeObject() });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// @desc  Login/Register worker using Phone Number & Aadhaar Number + OTP (No email required)
+// @route POST /api/auth/worker-otp-login
+// @body  { phone, aadhaarNumber, otp }
+const workerOTPLogin = async (req, res, next) => {
+  try {
+    const { phone, aadhaarNumber, otp } = req.body;
+
+    if (!phone || !aadhaarNumber) {
+      return res.status(400).json({ success: false, message: 'Phone number and Aadhaar number are required' });
+    }
+
+    const cleanPhone = phone.trim();
+    const last4 = String(aadhaarNumber).slice(-4);
+
+    // Try finding existing worker by phone or Aadhaar
+    let worker = await Worker.findOne({
+      $or: [{ phone: cleanPhone }, { 'kycStatus.aadhaarLast4': last4 }],
+    });
+
+    if (!worker) {
+      // Create fresh worker profile directly in MongoDB
+      const autoEmail = `worker_${cleanPhone.replace(/\D/g, '') || Math.floor(Math.random() * 10000)}@gigcredit.in`;
+      worker = await Worker.create({
+        name: `Gig Captain (${cleanPhone.slice(-4)})`,
+        phone: cleanPhone,
+        email: autoEmail,
+        password: 'otp_authenticated_user',
+        kycStatus: {
+          aadhaarLast4: last4,
+          verified: true,
+        },
+        accountAgeMonths: 1,
+        gigCreditScore: 740,
+        riskTier: 'Prime (Low Risk)',
+      });
+
+      await Wallet.create({ worker: worker._id, balance: 0, transactions: [] });
+    } else {
+      if (!worker.kycStatus) worker.kycStatus = {};
+      worker.kycStatus.aadhaarLast4 = last4;
+      worker.kycStatus.verified = true;
+      if (!worker.phone) worker.phone = cleanPhone;
+      await worker.save();
+    }
+
+    const token = generateToken(worker._id, 'worker');
+    return res.json({ success: true, token, role: 'worker', user: worker.toSafeObject(), isNewAccount: true });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { register, login, getMe, getDemoAccounts, switchDemoAccount, workerOTPLogin };
