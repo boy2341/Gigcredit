@@ -46,6 +46,21 @@ const GigCreditAPI = (() => {
     return !!getToken();
   }
 
+  /**
+   * Escapes a value for safe insertion into innerHTML. Always use this when
+   * interpolating user-supplied strings (worker/lender names, offer titles,
+   * etc.) into template literals — never insert them raw.
+   */
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (ch) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    }[ch]));
+  }
+
   /** Redirects to login.html if there's no token, or to the wrong dashboard if the role doesn't match */
   function requireAuth(expectedRole) {
     if (!isLoggedIn()) {
@@ -103,6 +118,7 @@ const GigCreditAPI = (() => {
     getUser,
     isLoggedIn,
     requireAuth,
+    escapeHtml,
 
     // worker
     getWorkerProfile: () => request('/workers/me'),
@@ -155,7 +171,7 @@ const GigCreditAPI = (() => {
       const toast = document.createElement('div');
       toast.className = `toast-message ${type}`;
       const icon = type === 'success' ? 'check_circle' : type === 'error' ? 'error' : 'info';
-      toast.innerHTML = `<span class="material-symbols-outlined text-[20px] ${type === 'success' ? 'text-emerald-600' : 'text-primary'}">${icon}</span> <span>${message}</span>`;
+      toast.innerHTML = `<span class="material-symbols-outlined text-[20px] ${type === 'success' ? 'text-emerald-600' : 'text-primary'}">${icon}</span> <span>${escapeHtml(message)}</span>`;
       container.appendChild(toast);
 
       setTimeout(() => {

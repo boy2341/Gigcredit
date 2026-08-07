@@ -6,7 +6,7 @@
 <title>GigCredit - Portable Financial Identity &amp; Credit Platform</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
 <link href="css/style.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -14,18 +14,22 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#004ac6",
-                        secondary: "#006c49",
+                        primary: "#2563eb",
+                        "primary-fixed": "#dbeafe",
+                        secondary: "#10b981",
+                        accent: "#7c3aed",
                         "surface-container-lowest": "#ffffff",
-                        "on-surface": "#111c2d",
-                        "on-surface-variant": "#434655",
-                        "outline-variant": "#c3c6d7",
-                        background: "#f9f9ff",
+                        "surface-container": "#f1f5f9",
+                        "on-surface": "#0f172a",
+                        "on-surface-variant": "#475569",
+                        outline: "#64748b",
+                        "outline-variant": "#e2e8f0",
+                        background: "#f8fafc",
                     },
                     fontFamily: {
-                        body: ["Inter"],
-                        headline: ["Hanken Grotesk"],
-                        mono: ["JetBrains Mono"]
+                        body: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+                        headline: ["Outfit", "Hanken Grotesk", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
                     }
                 }
             }
@@ -39,7 +43,7 @@
 <div class="flex items-center gap-3">
 <div class="w-8 h-8 rounded-lg bg-primary text-white font-bold flex items-center justify-center text-sm shadow-md">G</div>
 <span class="font-headline font-extrabold text-xl text-gradient hidden sm:inline" id="nav-brand-title">GigCredit Worker Portal</span>
-<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200" id="nav-live-badge">RBI AA &amp; UPI LIVE</span>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200" id="nav-live-badge">AA &amp; UPI LIVE</span>
 </div>
 
 <div class="flex items-center gap-2 sm:gap-3">
@@ -100,7 +104,7 @@
 <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs space-y-1 shadow-sm">
 <span class="font-bold text-slate-700 block" id="side-fin-id-title">Gig Account Number</span>
 <span class="font-mono text-[11px] text-primary font-bold block" id="sidebar-escrow-id">ESCROW-9042-8819</span>
-<span class="text-[10px] text-emerald-600 font-semibold block" id="side-aa-rail-status">✓ RBI Verified Bank Link</span>
+<span class="text-[10px] text-emerald-600 font-semibold block" id="side-aa-rail-status">✓ Verified Bank Link</span>
 </div>
 </aside>
 
@@ -115,7 +119,7 @@
 <span class="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold font-mono rounded-full border border-emerald-500/30">PORTABLE FINANCIAL IDENTITY</span>
 <h3 class="font-headline font-extrabold text-lg text-white">Underwriting &amp; Escrow Infrastructure</h3>
 </div>
-<p class="text-xs text-slate-300 mt-1">Consent-based multi-app income underwriting (Swiggy, Zomato, Uber, Blinkit) with RBI Account Aggregator bank verification and daily closed-loop Escrow micro-EMIs.</p>
+<p class="text-xs text-slate-300 mt-1">Consent-based multi-app income underwriting (Swiggy, Zomato, Uber, Blinkit) with Account Aggregator bank verification and daily closed-loop Escrow micro-EMIs.</p>
 </div>
 <div class="flex items-center gap-2 shrink-0">
 <button class="bg-primary hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-1.5" onclick="openWizardModal()">
@@ -128,7 +132,241 @@ Lender Portal <span class="material-symbols-outlined text-[16px]">open_in_new</s
 </div>
 </div>
 
-<!-- Welcome Banner & Quick Action Buttons -->
+<!-- 7-STAGE AGENTIC AI COMMAND CENTER & LIVE TIMELINE STEPPER -->
+<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-lg space-y-6">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 pb-4 border-b border-slate-100">
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 bg-indigo-600 text-white text-[10px] font-bold font-mono rounded-full border border-indigo-700 shadow-sm">PHASE 1 — MULTI-AGENT AI SYSTEM</span>
+<span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold font-mono rounded-full border border-emerald-200">DEMO PROFILE: Ramesh Kumar</span>
+</div>
+<h2 class="text-xl font-headline font-extrabold text-slate-900 mt-1">Rider Document Intake &amp; 7-Agent Underwriting Pipeline</h2>
+<p class="text-xs text-slate-500 mt-0.5">Upload rider documents (Bank Statements, Swiggy/Zomato Pay Proofs, Ratings, UPI logs) for Stage 1 ➔ Stage 7 autonomous processing.</p>
+</div>
+<button id="run-agent-pipeline-btn" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-xs px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all flex items-center gap-2 shrink-0" onclick="triggerAgentPipeline()">
+<span class="material-symbols-outlined text-[20px]">bolt</span> Execute 7-Stage Agent Pipeline
+</button>
+</div>
+
+<!-- Rider Document Upload Vault (4 Categories x 7 Real-Time PNG Document Options Each) -->
+<div class="bg-slate-900 text-white p-5 rounded-2xl border border-indigo-500/30 shadow-xl space-y-4">
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold font-mono rounded-full border border-emerald-500/30">MULTI-FACTOR UNDERWRITING</span>
+        <h3 class="text-sm font-bold font-headline text-white">Rider Document Vault (7 Options Per Category)</h3>
+      </div>
+      <p class="text-xs text-slate-400 mt-0.5">Select any combination of 7 real-time document PNGs across Bank, Payout, Rating, and UPI logs to calculate dynamic scores!</p>
+    </div>
+    <span class="text-xs font-bold text-emerald-400 font-mono bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-500/30">28 Verified Files Loaded</span>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-slate-900">
+    <!-- Doc 1: Bank Statement (7 Options) -->
+    <div class="bg-slate-800 p-3.5 rounded-xl border border-slate-700 hover:border-emerald-400 transition-all space-y-2 text-white">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-white">1. Bank Statement</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 bg-emerald-500/20 text-emerald-400 rounded">7 PNG OPTIONS</span>
+      </div>
+      <select id="doc-bank-select" class="w-full text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg p-2 outline-none focus:border-emerald-500" onchange="syncDocumentLinks()">
+        <option value="hdfc_bank_statement_july.png" selected>🏦 HDFC Bank 4-Mo AA Statement (Ramesh)</option>
+        <option value="sbi_scanned_bank_statement.png">🏦 SBI Scanned Statement (₹48,200/mo)</option>
+        <option value="icici_cashflow_statement.png">🏦 ICICI Bank Escrow Statement (Gurpreet)</option>
+        <option value="unity_trust_bank_farhan.png">🏦 Unity Trust Bank (Farhan Ali)</option>
+        <option value="unity_trust_bank_amanpreet.png">🏦 Unity Trust Bank (Amanpreet Singh)</option>
+        <option value="edited_tampered_statement.png">⚠️ Tampered PDF Statement (Fraud Flag)</option>
+        <option value="starter_cashflow_statement.png">📄 Single-App Cashflow Log (₹18,500/mo)</option>
+      </select>
+      <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+        <span>AA Escrow Deposit Proof</span>
+        <a id="link-doc-bank" class="text-indigo-400 font-bold hover:underline" href="/uploads/hdfc_bank_statement_july.png" target="_blank">View File ↗</a>
+      </div>
+    </div>
+
+    <!-- Doc 2: Platform Pay Proof (7 Options) -->
+    <div class="bg-slate-800 p-3.5 rounded-xl border border-slate-700 hover:border-blue-400 transition-all space-y-2 text-white">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-white">2. Platform Pay Proof</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 bg-blue-500/20 text-blue-400 rounded">7 PNG OPTIONS</span>
+      </div>
+      <select id="doc-payout-select" class="w-full text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg p-2 outline-none focus:border-blue-500" onchange="syncDocumentLinks()">
+        <option value="swiggy_zomato_weekly_payout.png" selected>📊 Swiggy + Zomato Weekly Payout.png</option>
+        <option value="blinkit_zepto_pay_stub.png">📦 Blinkit &amp; Zepto Dark Store Pay.png</option>
+        <option value="gurpreet_express_freight_log.png">🚚 Porter &amp; Uber Freight Heavy Log.png</option>
+        <option value="uber_ola_earnings_summary.png">🚗 Uber India &amp; Ola Fleet Summary.png</option>
+        <option value="ananya_urbancompany_paystub.png">🛠️ Urban Company Home Services.png</option>
+        <option value="vikram_rapido_shadowfax_receipt.png">🛵 Shadowfax &amp; Rapido Courier Pay.png</option>
+        <option value="unverified_solo_paystub.png">📄 Unverified Single-App Pay Stub.png</option>
+      </select>
+      <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+        <span>Multi-App Income Proof</span>
+        <a id="link-doc-payout" class="text-indigo-400 font-bold hover:underline" href="/uploads/swiggy_zomato_weekly_payout.png" target="_blank">View File ↗</a>
+      </div>
+    </div>
+
+    <!-- Doc 3: Ratings Badge (7 Options) -->
+    <div class="bg-slate-800 p-3.5 rounded-xl border border-slate-700 hover:border-purple-400 transition-all space-y-2 text-white">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-white">3. Ratings &amp; Badge</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 bg-purple-500/20 text-purple-400 rounded">7 PNG OPTIONS</span>
+      </div>
+      <select id="doc-rating-select" class="w-full text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg p-2 outline-none focus:border-purple-500" onchange="syncDocumentLinks()">
+        <option value="fleet_captain_4_9_star_badge.png" selected>⭐ Swiggy Fleet Captain 4.9 Star.png</option>
+        <option value="zomato_gold_badge_rating.png">🏅 Zomato Pro Delivery Badge.png</option>
+        <option value="porter_super_star_driver.png">🌟 Porter Heavy Freight Superstar.png</option>
+        <option value="zepto_5star_courier.png">⚡ Zepto 10-Min 5-Star Certificate.png</option>
+        <option value="urbancompany_diamond_badge.png">💎 Urban Company Master Professional.png</option>
+        <option value="shadowfax_silver_captain.png">🥈 Shadowfax Silver Captain Badge.png</option>
+        <option value="unrated_starter_badge.png">🔰 New Rider Unrated Profile Badge.png</option>
+      </select>
+      <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+        <span>Operational Trust Proof</span>
+        <a id="link-doc-rating" class="text-indigo-400 font-bold hover:underline" href="/uploads/fleet_captain_4_9_star_badge.png" target="_blank">View File ↗</a>
+      </div>
+    </div>
+
+    <!-- Doc 4: UPI Transaction Log (7 Options) -->
+    <div class="bg-slate-800 p-3.5 rounded-xl border border-slate-700 hover:border-pink-400 transition-all space-y-2 text-white">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-white">4. UPI Transaction Log</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 bg-pink-500/20 text-pink-400 rounded">7 PNG OPTIONS</span>
+      </div>
+      <select id="doc-upi-select" class="w-full text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg p-2 outline-none focus:border-pink-500" onchange="syncDocumentLinks()">
+        <option value="upi_phonepe_history_july.png" selected>💸 PhonePe UPI 4-Month Cashflow Log</option>
+        <option value="paytm_upi_statement.png">📲 Paytm Wallet Escrow Statement</option>
+        <option value="gpay_business_upi_log.png">💳 Google Pay Business UPI Log</option>
+        <option value="amazon_pay_cashflow_log.png">🛒 Amazon Pay Cashflow Statement</option>
+        <option value="bhim_escrow_direct_log.png">🏛️ BHIM UPI NPCI Direct Log</option>
+        <option value="cred_upi_settlement_log.png">💎 Cred UPI Escrow Settlement Log</option>
+        <option value="high_outflow_upi_log.png">⚠️ High Outflow Unbalanced Log</option>
+      </select>
+      <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+        <span>Spending &amp; Savings Log</span>
+        <a id="link-doc-upi" class="text-indigo-400 font-bold hover:underline" href="/uploads/upi_phonepe_history_july.png" target="_blank">View File ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Big Data Underwriting Analytics Summary Bar (150 Real Driver Datasets) -->
+<div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-4 rounded-xl shadow-md border border-indigo-900/40 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold font-mono rounded border border-emerald-500/30">BIG DATA BENCHMARK</span>
+<span class="text-xs font-bold text-slate-200">150 Real Swiggy &amp; Multi-Platform Driver DB Test</span>
+</div>
+<div class="text-[11px] text-slate-300 mt-1">Total Underwritten: <span class="font-bold text-emerald-300 font-mono">₹20,03,000</span> (~₹0.20 Cr) • Avg GigScore: <span class="font-bold text-amber-300 font-mono">754 / 900</span> • Speed: <span class="font-bold text-blue-300 font-mono">1.43ms / driver</span></div>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono">
+<div class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 rounded border border-emerald-500/30">Prime (740+): <b>67.3%</b></div>
+<div class="px-2.5 py-1 bg-amber-500/20 text-amber-300 rounded border border-amber-500/30">Standard: <b>32.7%</b></div>
+</div>
+</div>
+
+<!-- Live Stepper Execution Timeline -->
+<div id="agent-stepper-container" class="space-y-3">
+<div class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-indigo-600">account_tree</span> 7-Agent Execution Timeline</span>
+<span class="text-[10px] text-indigo-700 font-mono">Shared PipelineContext Active</span>
+</div>
+<div id="agent-timeline-stepper" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Steps rendered dynamically by agentTimeline.js -->
+</div>
+</div>
+
+<!-- Detailed Results Card -->
+<div id="agent-results-container" class="pt-3 border-t border-slate-100 hidden">
+<div id="agent-results-card"></div>
+</div>
+</div>
+
+<!-- PORTABLE FINANCIAL PASSPORT & CONSENT MANAGER WIDGET -->
+<div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 border border-indigo-900/50 shadow-2xl space-y-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-luminosity" style="background-image: url('images/gig_worker_hero.png');"></div>
+<div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+<!-- Passport Header -->
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-white/10 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-500 to-emerald-400 p-0.5 shadow-lg">
+<img class="w-full h-full rounded-[14px] object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Ramesh Kumar"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-xl font-headline font-extrabold text-white">Ramesh Kumar</h2>
+<span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold font-mono rounded-full border border-emerald-500/30">VERIFIED PASSPORT 🪪</span>
+</div>
+<p class="text-xs text-slate-300">Swiggy &amp; Zomato Senior Fleet Captain • Delhi NCR • EV Scooter</p>
+</div>
+</div>
+
+<!-- Revocable Consent Status -->
+<div class="flex items-center gap-2 bg-white/5 p-2 rounded-xl border border-white/10 shrink-0">
+<div>
+<div class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Consent Protocol</div>
+<span id="consent-status-badge" class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold font-mono rounded-full border border-emerald-200">ACTIVE_CONSENT (Finvu AA)</span>
+</div>
+<button id="revoke-consent-btn" class="px-3 py-1 bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 border border-rose-500/40 rounded-lg text-xs font-bold transition-all" onclick="toggleConsentState()">Revoke Consent</button>
+</div>
+</div>
+
+<!-- Portable Financial Passport Card Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 relative z-10">
+<!-- Metric 1: GigScore -->
+<div class="bg-white/5 p-3 rounded-2xl border border-white/10 text-left space-y-1">
+<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">GigScore</div>
+<div class="text-2xl font-extrabold text-emerald-400 font-headline"><span id="passport-gigscore-val">748</span> <span class="text-xs font-normal text-slate-400">/ 900</span></div>
+<div class="text-[10px] text-emerald-300 font-semibold" id="passport-risk-tier">Prime (Low Risk)</div>
+</div>
+
+<!-- Metric 2: Confidence Score -->
+<div class="bg-white/5 p-3 rounded-2xl border border-white/10 text-left space-y-1">
+<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Data Confidence</div>
+<div class="text-2xl font-extrabold text-blue-400 font-headline" id="passport-confidence-val">96%</div>
+<div class="text-[10px] text-blue-300 font-semibold">100% Bank Matched</div>
+</div>
+
+<!-- Metric 3: Fraud Risk -->
+<div class="bg-white/5 p-3 rounded-2xl border border-white/10 text-left space-y-1">
+<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Fraud Risk</div>
+<div class="text-2xl font-extrabold text-emerald-400 font-headline" id="passport-fraud-risk-val">CLEAN</div>
+<div class="text-[10px] text-emerald-300 font-semibold" id="passport-fraud-sub">0 Tamper Flags</div>
+</div>
+
+<!-- Metric 4: Verification Level -->
+<div class="bg-white/5 p-3 rounded-2xl border border-white/10 text-left space-y-1">
+<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Trust Level</div>
+<div class="text-2xl font-extrabold text-indigo-300 font-headline" id="passport-trust-level">LEVEL 3</div>
+<div class="text-[10px] text-indigo-300 font-semibold">AA &amp; Multi-App Verified</div>
+</div>
+
+<!-- Metric 5: Evidence Strength -->
+<div class="bg-white/5 p-3 rounded-2xl border border-white/10 text-left space-y-1">
+<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Evidence Rating</div>
+<div class="text-xl font-extrabold text-amber-400">★★★★★</div>
+<div class="text-[10px] text-amber-300 font-semibold">4-Month Statement</div>
+</div>
+
+<!-- Metric 6: Data Freshness -->
+<div class="bg-white/5 p-3 rounded-2xl border border-white/10 text-left space-y-1">
+<div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Freshness</div>
+<div class="text-base font-extrabold text-slate-200 mt-1">TODAY</div>
+<div class="text-[10px] text-emerald-400 font-semibold">Live Real-Time Sync</div>
+</div>
+</div>
+
+<!-- Actionable Guidance AI Nudges -->
+<div class="bg-indigo-950/80 p-3.5 rounded-2xl border border-indigo-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs relative z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-amber-400">trending_up</span>
+<div>
+<span class="font-bold text-white">Your GigScore improved +24 pts this month!</span>
+<span class="text-slate-300 block text-[11px]">Income stability across Swiggy &amp; Zomato increased to 92/100. Connect Blinkit to unlock ₹1,50,000 credit limit.</span>
+</div>
+</div>
+<button class="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition-all shrink-0" onclick="sendCopilotQuery('Why did my score improve?')">Ask AI Copilot 🤖</button>
+</div>
+</div>
 <div class="glass-card rounded-2xl p-6 border border-outline-variant space-y-5 shadow-sm">
 <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
 <div>
@@ -329,6 +567,113 @@ Compare Loan Offers
 </div>
 </div>
 
+<!-- AUTOMATED ESCROW DYNAMIC DAILY MICRO-EMI CUTOFF ENGINE & FLEX-LEAVE PROTECTION WIDGET -->
+<div class="bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950 text-white rounded-3xl p-6 border border-indigo-500/40 shadow-2xl space-y-6 relative overflow-hidden">
+  <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 border-b border-slate-800 pb-4 relative z-10">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold font-mono rounded-full border border-emerald-500/30">AUTOMATED ESCROW INFRASTRUCTURE</span>
+        <h3 class="text-lg font-bold font-headline text-white">Dynamic Daily Micro-EMI Cutoff Engine (7% Rate)</h3>
+      </div>
+      <p class="text-xs text-slate-300 mt-1">Escrow auto-deducts 7% from daily platform earnings. If you earn ₹0 on a flex-leave day off, ₹0 EMI is deducted (Zero Default Guarantee)!</p>
+    </div>
+    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold font-mono rounded-xl border border-emerald-500/30 shrink-0">
+      🛡️ Flex-Leave Protection Active
+    </span>
+  </div>
+
+  <!-- Interactive Slider & Preset Buttons Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-10">
+    <!-- Slider Control Column -->
+    <div class="lg:col-span-7 space-y-5 bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+      <div class="flex justify-between items-center text-xs">
+        <span class="font-bold text-slate-300">Simulate Daily Platform Earnings Payout (₹)</span>
+        <div class="flex items-center gap-1 bg-slate-800 px-3 py-1 rounded-lg border border-slate-700 font-mono text-sm font-bold text-emerald-400">
+          <span>₹</span>
+          <input type="number" id="emi-earnings-input" value="1800" min="0" max="5000" class="w-20 bg-transparent text-emerald-400 font-bold outline-none text-right font-mono"/>
+        </div>
+      </div>
+
+      <!-- Range Slider -->
+      <input type="range" id="emi-earnings-slider" min="0" max="3500" step="50" value="1800" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"/>
+      <div class="flex justify-between text-[10px] font-mono text-slate-400">
+        <span>₹0 (Day Off)</span>
+        <span>₹1,000</span>
+        <span>₹2,000</span>
+        <span>₹3,500/day</span>
+      </div>
+
+      <!-- Quick Preset Simulation Buttons -->
+      <div class="space-y-1.5 pt-2">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block font-mono">Quick Test Scenarios:</span>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button class="px-3 py-1.5 bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-xl hover:bg-rose-500/30 font-bold transition-all flex items-center gap-1" onclick="setEmiSimulatorEarnings(0)">
+            🌴 Day Off / Sick (₹0)
+          </button>
+          <button class="px-3 py-1.5 bg-blue-500/20 text-blue-300 border border-blue-500/40 rounded-xl hover:bg-blue-500/30 font-bold transition-all flex items-center gap-1" onclick="setEmiSimulatorEarnings(1200)">
+            🛵 Normal Shift (₹1,200)
+          </button>
+          <button class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-xl hover:bg-emerald-500/30 font-bold transition-all flex items-center gap-1" onclick="setEmiSimulatorEarnings(2400)">
+            ⚡ Peak Shift (₹2,400)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Output Calculation Display Cards -->
+    <div class="lg:col-span-5 space-y-3">
+      <!-- Status Pill -->
+      <div id="sim-status-box" class="p-3 rounded-xl border text-xs font-bold font-mono transition-all flex items-center justify-between text-blue-400 bg-blue-950/80 border-blue-500/40">
+        <span>✅ DYNAMIC CUTOFF ACTIVE (7% Rate)</span>
+        <span class="text-[10px] uppercase px-2 py-0.5 rounded bg-blue-600 text-white">7% CUTOFF</span>
+      </div>
+
+      <!-- Metrics Breakdown Grid -->
+      <div class="grid grid-cols-3 gap-2 text-center">
+        <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 space-y-1">
+          <span class="text-[9px] font-bold uppercase text-slate-400 block font-mono">Daily Payout</span>
+          <span id="sim-earnings-val" class="text-base font-extrabold text-white font-mono block">₹1,800</span>
+        </div>
+
+        <div class="p-3 bg-slate-900/90 rounded-xl border border-indigo-800 space-y-1">
+          <span class="text-[9px] font-bold uppercase text-indigo-400 block font-mono">Escrow EMI Cutoff</span>
+          <span id="sim-emi-val" class="text-base font-extrabold text-emerald-400 font-mono block">₹126</span>
+        </div>
+
+        <div class="p-3 bg-slate-900/90 rounded-xl border border-slate-800 space-y-1">
+          <span class="text-[9px] font-bold uppercase text-slate-400 block font-mono">Swept to Bank</span>
+          <span id="sim-net-val" class="text-base font-extrabold text-blue-300 font-mono block">₹1,674</span>
+        </div>
+      </div>
+
+      <!-- Live Simulated Escrow Payout Feed -->
+      <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 space-y-2 text-[11px]">
+        <div class="text-[10px] font-bold text-slate-400 font-mono uppercase tracking-wider flex justify-between">
+          <span>Live Escrow Payout &amp; EMI Log</span>
+          <span class="text-emerald-400 font-bold">Auto-Swept ⚡</span>
+        </div>
+        <div class="space-y-1.5">
+          <div class="flex justify-between items-center text-slate-300">
+            <span>🛵 Monday Swiggy Payout (₹1,600)</span>
+            <span class="font-mono text-emerald-400 font-bold">EMI Cutoff ₹112 ➔ Bank ₹1,488</span>
+          </div>
+          <div class="flex justify-between items-center text-emerald-300 font-bold bg-emerald-950/40 px-2 py-1 rounded border border-emerald-500/30">
+            <span>🌴 Tuesday Off (Flex-Leave ₹0)</span>
+            <span class="font-mono text-emerald-400">₹0 EMI (Zero Default 🛡️)</span>
+          </div>
+          <div class="flex justify-between items-center text-slate-300">
+            <span>⚡ Saturday Peak Zomato (₹2,800)</span>
+            <span class="font-mono text-emerald-400 font-bold">EMI Cutoff ₹150 (Cap) ➔ Bank ₹2,650</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Escrow Virtual Wallet & Connected Work Apps -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="escrow-wallet-card">
 <!-- Escrow Wallet Control -->
@@ -379,7 +724,7 @@ Send Cash to Bank (₹)
 </div>
 </div>
 
-<!-- Reverse-Auction RBI NBFC Lender Marketplace Section -->
+<!-- Reverse-Auction Lender Marketplace Section -->
 <div class="glass-card rounded-2xl p-6 border border-outline-variant space-y-6 shadow-sm" id="reverse-auction-card">
 <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
 <div>
@@ -450,7 +795,7 @@ Send Cash to Bank (₹)
 </div>
 
 <div class="text-[11px] text-slate-400 flex justify-between items-center pt-2 border-t border-slate-800">
-<span>🔒 Safe &amp; RBI Approved System</span>
+<span>🔒 Secure &amp; Encrypted System</span>
 <span class="text-emerald-400 font-bold">Checking Data...</span>
 </div>
 </div>
@@ -492,7 +837,7 @@ Send Cash to Bank (₹)
 <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
 <div class="flex justify-between items-center">
 <h4 class="font-bold text-on-surface text-sm flex items-center gap-1.5"><span class="w-5 h-5 rounded-full bg-primary text-white text-[10px] flex items-center justify-center font-mono">1</span> Mobile &amp; Aadhaar OTP</h4>
-<span class="text-[10px] bg-blue-100 text-primary font-bold px-2 py-0.5 rounded-full" id="aadhaar-status-badge">🔒 Government Verified</span>
+<span class="text-[10px] bg-blue-100 text-primary font-bold px-2 py-0.5 rounded-full" id="aadhaar-status-badge">Identity Verification</span>
 </div>
 <p class="text-[11px] text-slate-500">Enter your Aadhaar number to verify your identity safely:</p>
 <div class="grid grid-cols-2 gap-3">
@@ -520,7 +865,7 @@ Verify OTP
 <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
 <div class="flex justify-between items-center">
 <h4 class="font-bold text-on-surface text-sm flex items-center gap-1.5"><span class="w-5 h-5 rounded-full bg-primary text-white text-[10px] flex items-center justify-center font-mono">2</span> Basic Details &amp; Bank Link</h4>
-<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">🛡️ RBI Safe</span>
+<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">Bank Details</span>
 </div>
 <div class="grid grid-cols-2 gap-3">
 <div>
@@ -583,8 +928,61 @@ Verify OTP
 </div>
 </div>
 
+<!-- AI COPILOT FLOATING BUTTON & CHAT DRAWER -->
+<div id="copilot-floating-container" class="fixed bottom-6 right-6 z-50">
+  <button id="copilot-floating-btn" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-xs px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-white/20 transition-all transform hover:scale-105" onclick="toggleCopilotDrawer()">
+    <span class="material-symbols-outlined text-[20px]">smart_toy</span>
+    <span>Ask AI Copilot 🤖</span>
+  </button>
+
+  <!-- Chat Drawer Popup -->
+  <div id="copilot-chat-drawer" class="hidden absolute bottom-14 right-0 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[480px]">
+    <!-- Drawer Header -->
+    <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-xs">🤖</div>
+        <div>
+          <div class="text-xs font-bold text-white">GigCredit AI Copilot</div>
+          <div class="text-[10px] text-emerald-400 font-mono">Verified Pipeline Context Active</div>
+        </div>
+      </div>
+      <button class="text-slate-400 hover:text-white" onclick="toggleCopilotDrawer()">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="copilot-messages-box" class="flex-1 p-4 overflow-y-auto space-y-3">
+      <div class="flex justify-start">
+        <div class="bg-indigo-50 border border-indigo-100 text-slate-800 text-xs font-medium px-3.5 py-2.5 rounded-2xl rounded-tl-none max-w-[90%] space-y-1 shadow-sm">
+          <div class="text-[10px] font-bold text-indigo-700 font-mono">🤖 GIGCREDIT AI COPILOT</div>
+          <div>Namaste Ramesh! I am your AI Copilot. Ask me why your score changed, how to increase your credit limit, or any loan query!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompts Chips -->
+    <div class="p-2 border-t border-slate-100 bg-slate-50 flex gap-1.5 overflow-x-auto text-[10px] font-semibold text-indigo-700">
+      <button class="px-2.5 py-1 bg-white border border-slate-200 rounded-full shrink-0 hover:border-indigo-400" onclick="sendCopilotQuery('Why is my score 748?')">Why is my score 748?</button>
+      <button class="px-2.5 py-1 bg-white border border-slate-200 rounded-full shrink-0 hover:border-indigo-400" onclick="sendCopilotQuery('How to get ₹1.5 Lakh limit?')">Increase Limit 🚀</button>
+      <button class="px-2.5 py-1 bg-white border border-slate-200 rounded-full shrink-0 hover:border-indigo-400" onclick="sendCopilotQuery('What if I work fewer hours?')">Day Off Advice 🌴</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="p-3 border-t border-slate-200 bg-white flex gap-2">
+      <input id="copilot-user-input" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500 font-medium" placeholder="Ask AI Copilot anything..." onkeypress="if(event.key==='Enter') sendCopilotQuery()"/>
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-3 py-2 rounded-xl text-xs flex items-center justify-center transition-all" onclick="sendCopilotQuery()">
+        <span class="material-symbols-outlined text-[18px]">send</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script src="js/api.js"></script>
 <script src="js/worker.js"></script>
+<script src="js/agentTimeline.js"></script>
+<script src="js/escrowEmiSimulator.js"></script>
+<script src="js/financialPassport.js"></script>
 <script>
 function toggleProfileSwitcher() {
     document.getElementById('profile-switcher-menu').classList.toggle('show');

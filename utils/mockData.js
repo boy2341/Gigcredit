@@ -1,4 +1,4 @@
-const GIG_PLATFORMS = ['Swiggy', 'Zomato', 'Zepto', 'Blinkit', 'Uber India', 'Ola', 'Porter', 'Rapido', 'Urban Company', 'Shadowfax'];
+const GIG_PLATFORMS = ['Swiggy', 'Zomato', 'Zepto', 'Blinkit', 'Uber India', 'Ola', 'Porter', 'Rapido', 'Urban Company', 'Shadowfax', 'SwiftEats', 'ZipMart'];
 
 const rand = (min, max) => Math.random() * (max - min) + min;
 const randInt = (min, max) => Math.floor(rand(min, max + 1));
@@ -93,7 +93,7 @@ function generateSystemLoanOffers({ score, monthlyIncome }) {
 function generateReverseAuctionBids({ score, monthlyIncome }) {
   const baseRate = score >= 740 ? 7.8 : score >= 620 ? 10.5 : 14.2;
   const lenders = [
-    { name: 'Bharat Gig Finance Ltd (RBI Reg: NBFC-IND-884210)', discount: 0.8, tenure: 12 },
+    { name: 'Bharat Gig Finance Ltd', discount: 0.8, tenure: 12 },
     { name: 'Lendingkart Micro Trust (NBFC-MFI)', discount: 1.2, tenure: 18 },
     { name: 'Apex Microfinance Trust', discount: 0.5, tenure: 24 },
   ];

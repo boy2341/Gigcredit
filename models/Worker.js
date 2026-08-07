@@ -6,7 +6,7 @@ const PlatformSchema = new mongoose.Schema(
     platform: {
       type: String,
       required: true,
-      enum: ['Swiggy', 'Zomato', 'Zepto', 'Blinkit', 'Uber India', 'Ola', 'Porter', 'Rapido', 'Urban Company', 'Shadowfax'],
+      enum: ['Swiggy', 'Zomato', 'Zepto', 'Blinkit', 'Uber India', 'Ola', 'Porter', 'Rapido', 'Urban Company', 'Shadowfax', 'SwiftEats', 'ZipMart'],
     },
     connectedAt: { type: Date, default: Date.now },
     monthlyEarnings: { type: Number, default: 0 },
@@ -43,7 +43,7 @@ const WorkerSchema = new mongoose.Schema(
     // Step 2: Account Aggregator & Escrow setup
     accountAggregatorConsent: {
       granted: { type: Boolean, default: true },
-      provider: { type: String, default: 'Finvu AA Rails (RBI Approved)' },
+      provider: { type: String, default: 'Finvu AA Rails' },
       consentId: { type: String, default: 'AA-FINVU-9924' },
       aaHandle: { type: String, default: 'worker@finvu' },
     },
@@ -99,6 +99,11 @@ const WorkerSchema = new mongoose.Schema(
     riskTier: { type: String, enum: ['Prime (Low Risk)', 'Standard (Medium Risk)', 'Starter (Higher Risk)'], default: 'Standard (Medium Risk)' },
 
     lastScoreUpdate: { type: Date, default: Date.now },
+
+    // True only for accounts created by the seed script for demo purposes.
+    // Used to gate the password-less "switch demo account" login endpoint so
+    // it can never be used to hijack a real user's account.
+    isDemoAccount: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

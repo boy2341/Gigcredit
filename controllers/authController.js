@@ -89,8 +89,8 @@ const getMe = async (req, res) => {
 // @route GET /api/auth/demo-accounts
 const getDemoAccounts = async (req, res, next) => {
   try {
-    const workers = await Worker.find({}).select('-password');
-    const lenders = await Lender.find({}).select('-password');
+    const workers = await Worker.find({ isDemoAccount: true }).select('-password');
+    const lenders = await Lender.find({ isDemoAccount: true }).select('-password');
 
     const formattedWorkers = workers.map((w) => ({
       id: w._id,
@@ -133,7 +133,10 @@ const switchDemoAccount = async (req, res, next) => {
     const Model = role === 'worker' ? Worker : Lender;
     const user = await Model.findById(id);
 
-    if (!user) {
+    if (!user || !user.isDemoAccount) {
+      // Deliberately returns the same 404 whether the id doesn't exist or
+      // belongs to a real (non-demo) account, so this endpoint can't be used
+      // to probe which ids correspond to real registered users.
       return res.status(404).json({ success: false, message: 'Demo account not found' });
     }
 

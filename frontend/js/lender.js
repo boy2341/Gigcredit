@@ -11,8 +11,8 @@
       const { dashboard } = await GigCreditAPI.getLenderDashboard();
 
       if ($('header-user-name')) $('header-user-name').textContent = dashboard.name || 'Bharat Gig Finance Ltd.';
-      if ($('header-user-inst')) $('header-user-inst').textContent = dashboard.institutionName || 'Bharat Gig Finance (RBI Registered NBFC)';
-      if ($('sidebar-nbfc-no')) $('sidebar-nbfc-no').textContent = dashboard.nbfcLicenseNo || 'NBFC-RBI-N.14.03290';
+      if ($('header-user-inst')) $('header-user-inst').textContent = dashboard.institutionName || 'Bharat Gig Finance Ltd.';
+      if ($('sidebar-nbfc-no')) $('sidebar-nbfc-no').textContent = dashboard.nbfcLicenseNo || 'FIN-INST-03290';
       if (dashboard.avatarUrl && $('header-avatar')) $('header-avatar').src = dashboard.avatarUrl;
 
       if ($('kpi-capital')) $('kpi-capital').textContent = fmtMoney(dashboard.activePortfolioValue || 12500000);
@@ -42,10 +42,10 @@
         <tr class="hover:bg-slate-50 transition-colors">
           <td class="py-3.5 px-3">
             <div class="flex items-center gap-3">
-              <img src="${w.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'}" class="w-9 h-9 rounded-full object-cover border border-slate-200"/>
+              <img src="${GigCreditAPI.escapeHtml(w.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80')}" class="w-9 h-9 rounded-full object-cover border border-slate-200"/>
               <div>
-                <div class="font-bold text-on-surface font-headline">${w.name}</div>
-                <div class="text-[10px] text-slate-400 font-mono">${w.city || 'Delhi NCR'} • ${w.vehicleType || 'EV Scooter'}</div>
+                <div class="font-bold text-on-surface font-headline">${GigCreditAPI.escapeHtml(w.name)}</div>
+                <div class="text-[10px] text-slate-400 font-mono">${GigCreditAPI.escapeHtml(w.city || 'Delhi NCR')} • ${GigCreditAPI.escapeHtml(w.vehicleType || 'EV Scooter')}</div>
               </div>
             </div>
           </td>
@@ -142,8 +142,8 @@
               (l) => `
         <div class="p-4 bg-white rounded-xl border border-slate-200 flex justify-between items-center text-xs">
           <div>
-            <span class="font-bold font-headline text-on-surface block">${l.title}</span>
-            <span class="text-slate-500">Borrower: ${l.worker ? l.worker.name : 'Ramesh Kumar'} • GigScore: ${l.worker ? l.worker.gigCreditScore : 843}</span>
+            <span class="font-bold font-headline text-on-surface block">${GigCreditAPI.escapeHtml(l.title)}</span>
+            <span class="text-slate-500">Borrower: ${GigCreditAPI.escapeHtml(l.worker ? l.worker.name : 'Ramesh Kumar')} • GigScore: ${l.worker ? l.worker.gigCreditScore : 843}</span>
           </div>
           <div class="text-right font-mono">
             <span class="font-bold text-emerald-600 block">${fmtMoney(l.outstandingBalance)} left</span>
@@ -163,7 +163,7 @@
     const select = $('offer-worker-select');
     if (select) {
       select.innerHTML = workersCache
-        .map((w) => `<option value="${w._id}" ${w._id === workerId ? 'selected' : ''}>${w.name} (Score ${w.gigCreditScore})</option>`)
+        .map((w) => `<option value="${w._id}" ${w._id === workerId ? 'selected' : ''}>${GigCreditAPI.escapeHtml(w.name)} (Score ${w.gigCreditScore})</option>`)
         .join('');
     }
     $('offer-modal').classList.remove('hidden');
@@ -214,8 +214,8 @@
           window.location.href = 'worker.html';
         };
         item.innerHTML = `
-          <img src="${w.avatarUrl}" class="w-6 h-6 rounded-full object-cover"/>
-          <span>${w.name} (${w.gigCreditScore})</span>`;
+          <img src="${GigCreditAPI.escapeHtml(w.avatarUrl)}" class="w-6 h-6 rounded-full object-cover"/>
+          <span>${GigCreditAPI.escapeHtml(w.name)} (${w.gigCreditScore})</span>`;
         list.appendChild(item);
       });
 
@@ -228,8 +228,8 @@
           window.location.reload();
         };
         item.innerHTML = `
-          <img src="${l.avatarUrl}" class="w-6 h-6 rounded-full object-cover"/>
-          <span>${l.name}</span>`;
+          <img src="${GigCreditAPI.escapeHtml(l.avatarUrl)}" class="w-6 h-6 rounded-full object-cover"/>
+          <span>${GigCreditAPI.escapeHtml(l.name)}</span>`;
         list.appendChild(item);
       });
     } catch (err) {
@@ -249,6 +249,11 @@
     GigCreditAPI.logout();
     window.location.href = 'login.html';
   });
+
+  window.filterLenderMarketplace = () => {
+    const query = ($('lender-search-input')?.value || '').trim();
+    loadWorkers(query);
+  };
 
   loadDashboard();
   loadWorkers();

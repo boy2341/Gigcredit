@@ -22,7 +22,7 @@ const syncIntake = async (req, res, next) => {
       syncedPhone: phone,
       aaHandle,
       consentId: worker?.accountAggregatorConsent?.consentId || 'AA-FINVU-9924',
-      provider: 'Finvu AA Rails (RBI Approved)',
+      provider: 'Finvu AA Rails',
       platformsDetected: platforms,
       lastSmsParsed: `Alert: Your ${platforms[0] || 'Swiggy'} weekly payout of ₹1,850 was ingested via SMS parser into Escrow HDFC0000240.`,
       timestamp: new Date(),

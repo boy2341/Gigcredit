@@ -33,6 +33,42 @@ const DEMO_WORKERS = [
     microEMIDeductionRate: 100, // ₹100/day
   },
   {
+    name: 'Amanpreet Singh',
+    email: 'amanpreet@worker.com',
+    password: 'password123',
+    phone: '+91 98112 33445',
+    upiId: 'amanpreet@payease',
+    city: 'Delhi NCR',
+    vehicleType: 'Motorcycle',
+    preferredLanguage: 'English',
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+    tagline: 'SwiftEats & ZipMart Delivery Partner',
+    bio: 'Verified rider partner on SwiftEats (4.4⭐) and ZipMart (4.1⭐) with Unity Trust Bank statement verification.',
+    platforms: ['SwiftEats', 'ZipMart'],
+    accountAgeMonths: 18,
+    bankName: 'Unity Trust Bank',
+    bankAccountMasked: 'XXXXXXXX6621',
+    microEMIDeductionRate: 35,
+  },
+  {
+    name: 'Farhan Ali',
+    email: 'farhan@worker.com',
+    password: 'password123',
+    phone: '+91 98450 67890',
+    upiId: 'farhan@payease',
+    city: 'Mumbai',
+    vehicleType: 'EV Scooter',
+    preferredLanguage: 'Hindi',
+    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+    tagline: 'ZipMart & SwiftEats Fleet Specialist',
+    bio: 'High-performing fleet captain maintaining 4.88⭐ average rating on ZipMart and SwiftEats in Mumbai.',
+    platforms: ['ZipMart', 'SwiftEats'],
+    accountAgeMonths: 24,
+    bankName: 'Unity Trust Bank',
+    bankAccountMasked: 'XXXXXXXX3387',
+    microEMIDeductionRate: 100,
+  },
+  {
     name: 'Priya Sharma',
     email: 'priya@worker.com',
     password: 'password123',
@@ -129,10 +165,10 @@ const DEMO_LENDERS = [
     name: 'Bharat Gig Finance Ltd.',
     email: 'lender@institution.com',
     password: 'password123',
-    institutionName: 'Bharat Gig Finance (RBI Registered NBFC)',
+    institutionName: 'Bharat Gig Finance Ltd.',
     avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80',
-    nbfcLicenseNo: 'NBFC-RBI-N.14.03290',
-    rbiRegistrationNo: 'RBI/NBFC/ND-SI/2022-884210',
+    nbfcLicenseNo: 'FIN-INST-03290',
+    rbiRegistrationNo: 'REG-INST-884210',
     headquarters: 'Mumbai, Maharashtra',
     collectionRate: 99.6,
   },
@@ -156,7 +192,7 @@ const run = async () => {
 
   console.log('[SEED] Creating institutional lenders...');
   const createdLenders = await Promise.all(
-    DEMO_LENDERS.map((l) => Lender.create({ ...l, activePortfolioValue: 125000, totalMoneyLent: 450000 }))
+    DEMO_LENDERS.map((l) => Lender.create({ ...l, activePortfolioValue: 125000, totalMoneyLent: 450000, isDemoAccount: true }))
   );
 
   const primaryLender = createdLenders[0];
@@ -195,7 +231,7 @@ const run = async () => {
       bankAccountMasked: w.bankAccountMasked,
       accountAggregatorConsent: {
         granted: true,
-        provider: 'Finvu AA Rails (RBI Approved)',
+        provider: 'Finvu AA Rails',
         consentId: `AA-FINVU-${9920 + idx}`,
         aaHandle: `${w.email.split('@')[0]}@finvu`,
       },
@@ -206,6 +242,7 @@ const run = async () => {
         status: 'Active Escrow Provisioned',
       },
       microEMIDeductionRate: w.microEMIDeductionRate || 100,
+      isDemoAccount: true,
     });
 
     const demoTx = generateWalletTransactions(platforms);

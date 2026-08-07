@@ -46,4 +46,28 @@ const authorize = (...roles) => (req, res, next) => {
   next();
 };
 
-module.exports = { protect, authorize };
+// Optional protection - attaches user if valid token present, otherwise proceeds
+const protectOptional = async (req, res, next) => {
+  try {
+    let token;
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
+    }
+    if (token) {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const Model = decoded.role === 'lender' ? Lender : Worker;
+      const user = await Model.findById(decoded.id).select('-password');
+      if (user) {
+        req.user = user;
+        req.userId = user._id;
+        req.role = decoded.role;
+      }
+    }
+  } catch (err) {
+    // Ignore invalid token in optional auth
+  }
+  next();
+};
+
+module.exports = { protect, authorize, protectOptional };

@@ -128,7 +128,7 @@ const fetchAccountAggregatorData = async (req, res, next) => {
 
     worker.accountAggregatorConsent = {
       granted: true,
-      provider: 'Finvu AA Rails (RBI Approved)',
+      provider: 'Finvu AA Rails',
       consentId: `AA-FINVU-${Math.floor(Math.random() * 8999 + 1000)}`,
       aaHandle,
     };
@@ -242,7 +242,7 @@ const underwriteFullAnalysis = async (req, res, next) => {
     const consentHandle = aaHandle || `${worker.email.split('@')[0]}@finvu`;
     worker.accountAggregatorConsent = {
       granted: true,
-      provider: 'Finvu AA Rails (RBI Approved)',
+      provider: 'Finvu AA Rails',
       consentId: `AA-FINVU-${Math.floor(Math.random() * 8999 + 1000)}`,
       aaHandle: consentHandle,
     };
@@ -280,7 +280,7 @@ const underwriteFullAnalysis = async (req, res, next) => {
         aadhaarMasked: `•••• •••• ${worker.kycStatus.aadhaarLast4 || '9924'}`,
       },
       accountAggregatorSummary: {
-        provider: 'Finvu AA Rails (RBI Approved)',
+        provider: 'Finvu AA Rails',
         consentId: worker.accountAggregatorConsent.consentId,
         aaHandle: consentHandle,
         linkedFIPs: ['HDFC Bank Escrow (Primary)', 'ICICI Bank', 'State Bank of India'],

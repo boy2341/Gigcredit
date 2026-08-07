@@ -33,7 +33,7 @@
       trustTitle: 'Operational Trust',
       creditLineTitle: 'Pre-Approved Credit Line',
       creditLineSub: 'Escrow-backed Instant Liquidity',
-      requestNBFC: 'Request RBI NBFC Bids',
+      requestNBFC: 'Request Lender Bids',
       repTitle: 'Holistic Gig Credit Analysis',
       escrowTitle: 'Escrow Wallet (₹)',
       linkedAppsTitle: 'Linked Gig Work Accounts',
@@ -64,7 +64,7 @@
       trustTitle: 'ऑपरेशनल भरोसा',
       creditLineTitle: 'स्वीकृत लोन सीमा (₹)',
       creditLineSub: 'तुरंत UPI ट्रांसफर हेतु उपलब्ध',
-      requestNBFC: 'RBI NBFC ऑफर देखें',
+      requestNBFC: 'लेंडर ऑफर देखें',
       repTitle: 'संपूर्ण क्रेडिट और पात्रता विश्लेषण',
       escrowTitle: 'एस्क्रौ वॉलेट (₹)',
       linkedAppsTitle: 'जुड़े हुए गिग वर्क ऐप्स',
@@ -95,7 +95,7 @@
       trustTitle: 'ಕಾರ್ಯಾಚರಣೆಯ ನಂಬಿಕೆ',
       creditLineTitle: 'ಪೂರ್ವ-ಅನುಮೋದಿತ ಸಾಲದ ಮಿತಿ',
       creditLineSub: 'ತಕ್ಷಣದ ನಗದು ಲಭ್ಯತೆ',
-      requestNBFC: 'RBI NBFC ಆಫರ್‌ಗಳನ್ನು ಪಡೆಯಿರಿ',
+      requestNBFC: 'ಆಫರ್‌ಗಳನ್ನು ಪಡೆಯಿರಿ',
       repTitle: 'ಪೂರ್ಣ ಕ್ರೆಡಿಟ್ ವಿಶ್ಲೇಷಣೆ',
       escrowTitle: 'ಎಸ್ಕ್ರೋ ವಾಲೆಟ್ (₹)',
       linkedAppsTitle: 'ಸಂಪರ್ಕಿತ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳು',
@@ -126,7 +126,7 @@
       trustTitle: 'నమ్మకం స్కోర్',
       creditLineTitle: 'ముందస్తు ఆమోదిత రుణ పరిమితి',
       creditLineSub: 'తక్షణ నగదు అందుబాటులో ఉంది',
-      requestNBFC: 'RBI NBFC ఆఫర్‌లను పొందండి',
+      requestNBFC: 'ఆఫర్‌లను పొందండి',
       repTitle: 'పూర్తి క్రెడిట్ విశ్లేషణ',
       escrowTitle: 'ఎస్క్రో వ్యాలెట్ (₹)',
       linkedAppsTitle: 'కనెక్ట్ చేసిన పని యాప్‌లు',
@@ -157,7 +157,7 @@
       trustTitle: 'ऑपरेशनल विश्वास',
       creditLineTitle: 'पूर्व-मंजूर कर्ज मर्यादा (₹)',
       creditLineSub: 'त्वरीत UPI हस्तांतरणासाठी उपलब्ध',
-      requestNBFC: 'RBI NBFC ऑफर पहा',
+      requestNBFC: 'लेंडर ऑफर पहा',
       repTitle: 'संपूर्ण क्रेडिट विश्लेषण',
       escrowTitle: 'एस्क्रॉ वॉलेट (₹)',
       linkedAppsTitle: 'जोडलेले गिग वर्क ॲप्स',
@@ -415,7 +415,7 @@
         (o) => `
       <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-3">
         <div class="flex justify-between items-start">
-          <span class="text-xs font-bold text-on-surface font-headline">${o.title}</span>
+          <span class="text-xs font-bold text-on-surface font-headline">${GigCreditAPI.escapeHtml(o.title)}</span>
           <span class="text-[10px] px-2 py-0.5 bg-blue-50 text-primary font-bold font-mono rounded">${o.interestRate}% APR</span>
         </div>
         <div class="text-2xl font-bold font-mono text-primary">${fmtRupee(o.amount)}</div>
@@ -463,7 +463,7 @@
         (l) => `
       <div class="p-4 bg-white rounded-xl border border-slate-200 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
         <div>
-          <span class="text-xs font-bold text-on-surface block font-headline">${l.title}</span>
+          <span class="text-xs font-bold text-on-surface block font-headline">${GigCreditAPI.escapeHtml(l.title)}</span>
           <span class="text-[11px] text-slate-500">EMI: ${fmtRupee(l.monthlyEMI)}/mo • Outstanding: <strong class="text-slate-800 font-mono">${fmtRupee(l.outstandingBalance)}</strong> of ${fmtRupee(l.principal)}</span>
         </div>
         <button onclick="repayLoan('${l._id}', ${l.monthlyEMI})" class="bg-primary text-white font-semibold text-xs px-4 py-2 rounded-xl hover:bg-blue-700">
@@ -537,7 +537,7 @@
       modal.classList.remove('hidden');
       modal.classList.add('flex');
 
-      logsFeed.innerHTML = '<div class="text-blue-400 font-bold">[0.1s] 🔒 Contacting RBI Finvu Account Aggregator Gateway...</div>';
+      logsFeed.innerHTML = '<div class="text-blue-400 font-bold">[0.1s] 🔒 Contacting Finvu Account Aggregator Gateway...</div>';
       progressBar.style.width = '20%';
       progressPct.textContent = '20%';
 
@@ -605,7 +605,7 @@
   // Step 5: Reverse-Auction Bidding
   window.triggerReverseAuction = async () => {
     try {
-      GigCreditAPI.showToast('Initiating 60-second RBI NBFC Reverse Auction...', 'info');
+      GigCreditAPI.showToast('Initiating 60-second Lender Reverse Auction...', 'info');
       const res = await GigCreditAPI.requestBids();
       GigCreditAPI.showToast(res.message, 'success');
       loadDashboard();
@@ -630,8 +630,8 @@
           window.location.reload();
         };
         item.innerHTML = `
-          <img src="${w.avatarUrl}" class="w-6 h-6 rounded-full object-cover"/>
-          <span>${w.name} (${w.gigCreditScore}) • ${w.city || 'Delhi'}</span>`;
+          <img src="${GigCreditAPI.escapeHtml(w.avatarUrl)}" class="w-6 h-6 rounded-full object-cover"/>
+          <span>${GigCreditAPI.escapeHtml(w.name)} (${w.gigCreditScore}) • ${GigCreditAPI.escapeHtml(w.city || 'Delhi')}</span>`;
         list.appendChild(item);
       });
 
@@ -644,8 +644,8 @@
           window.location.href = 'lender.html';
         };
         item.innerHTML = `
-          <img src="${l.avatarUrl}" class="w-6 h-6 rounded-full object-cover"/>
-          <span>${l.name}</span>`;
+          <img src="${GigCreditAPI.escapeHtml(l.avatarUrl)}" class="w-6 h-6 rounded-full object-cover"/>
+          <span>${GigCreditAPI.escapeHtml(l.name)}</span>`;
         list.appendChild(item);
       });
     } catch (err) {

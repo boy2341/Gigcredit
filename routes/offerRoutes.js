@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { protect, authorize } = require('../middleware/auth');
+const validate = require('../middleware/validators');
 const {
   getOffersForWorker,
   createOffer,
@@ -15,7 +16,7 @@ router.post('/request-bids', protect, authorize('worker'), requestReverseAuction
 router.post('/:id/accept', protect, authorize('worker'), acceptOffer);
 router.post('/:id/reject', protect, authorize('worker'), rejectOffer);
 
-router.post('/', protect, authorize('lender'), createOffer);
+router.post('/', protect, authorize('lender'), validate.createOffer, validate.handleValidation, createOffer);
 router.get('/lender', protect, authorize('lender'), getOffersByLender);
 
 module.exports = router;

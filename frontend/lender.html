@@ -6,7 +6,7 @@
 <title>GigCredit - Institutional Lender Portal</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
 <link href="css/style.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -14,18 +14,22 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#004ac6",
-                        secondary: "#006c49",
+                        primary: "#2563eb",
+                        "primary-fixed": "#dbeafe",
+                        secondary: "#10b981",
+                        accent: "#7c3aed",
                         "surface-container-lowest": "#ffffff",
-                        "on-surface": "#111c2d",
-                        "on-surface-variant": "#434655",
-                        "outline-variant": "#c3c6d7",
-                        background: "#f9f9ff",
+                        "surface-container": "#f1f5f9",
+                        "on-surface": "#0f172a",
+                        "on-surface-variant": "#475569",
+                        outline: "#64748b",
+                        "outline-variant": "#e2e8f0",
+                        background: "#f8fafc",
                     },
                     fontFamily: {
-                        body: ["Inter"],
-                        headline: ["Hanken Grotesk"],
-                        mono: ["JetBrains Mono"]
+                        body: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+                        headline: ["Outfit", "Hanken Grotesk", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
                     }
                 }
             }
@@ -39,7 +43,7 @@
 <div class="flex items-center gap-3">
 <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white font-bold flex items-center justify-center text-sm shadow-md">L</div>
 <span class="font-headline font-extrabold text-xl text-gradient-emerald">GigCredit Lender Portal</span>
-<span class="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">RBI REGISTERED NBFC</span>
+<span class="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">INSTITUTIONAL LENDER PORTAL</span>
 </div>
 
 <!-- Profile Switcher Dropdown Button -->
@@ -48,7 +52,7 @@
 <img class="w-7 h-7 rounded-full object-cover border border-emerald-600/30" id="header-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80"/>
 <div class="text-left hidden sm:block">
 <div class="text-xs font-bold text-on-surface leading-tight" id="header-user-name">Bharat Gig Finance Ltd.</div>
-<div class="text-[10px] text-emerald-700 font-semibold font-mono" id="header-user-inst">RBI Reg: NBFC-RBI-N.14.03290</div>
+<div class="text-[10px] text-emerald-700 font-semibold font-mono" id="header-user-inst">Verified Lending Entity</div>
 </div>
 <span class="material-symbols-outlined text-slate-400 text-[18px]">expand_more</span>
 </button>
@@ -81,9 +85,9 @@
 </div>
 
 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
-<span class="font-bold text-slate-700 block">RBI NBFC Registered</span>
-<span class="font-mono text-[11px] text-emerald-700 font-semibold block" id="sidebar-nbfc-no">NBFC-RBI-N.14.03290</span>
-<span class="text-[10px] text-emerald-600 font-semibold block">✓ HDFC Escrow Trust Partner</span>
+<span class="font-bold text-slate-700 block">Institutional Partner</span>
+<span class="font-mono text-[11px] text-emerald-700 font-semibold block" id="sidebar-nbfc-no">ID: FIN-INST-03290</span>
+<span class="text-[10px] text-emerald-600 font-semibold block">✓ Automated Escrow Mechanism</span>
 </div>
 </aside>
 
@@ -130,9 +134,62 @@ Institutional Yield &amp; Risk Dashboard
 </div>
 </div>
 
-<!-- Underwritten Worker Marketplace Table -->
+<!-- Underwritten Worker Marketplace Table & Filter Command Bar -->
 <div class="glass-card rounded-2xl p-6 border border-outline-variant space-y-6" id="marketplace-section">
-<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-slate-100 pb-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold font-mono rounded-full border border-emerald-200">PORTABLE FINANCIAL PASSPORT MARKET</span>
+<h2 class="text-xl font-headline font-extrabold text-on-surface">Underwritten Worker Credit Portfolio</h2>
+</div>
+<p class="text-xs text-slate-500 mt-1">Review verified 4-month cashflow passports, multi-agent AI risk reports, and dispatch institutional loan offers.</p>
+</div>
+
+<!-- AI Copilot Trigger for Lenders -->
+<button class="bg-gradient-to-r from-emerald-700 to-teal-700 hover:from-emerald-800 hover:to-teal-800 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2" onclick="sendCopilotQuery('Why is Ramesh Kumar low risk?')">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span> Ask Lender AI Copilot 🤖
+</button>
+</div>
+
+<!-- Institutional Lender Search & Filter Control Bar -->
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs font-medium">
+<!-- Search Box -->
+<div class="space-y-1">
+<label class="block font-bold text-slate-700 text-[11px]">Search Worker / Platform</label>
+<input id="lender-search-input" class="w-full bg-white border border-slate-200 rounded-lg p-2 outline-none focus:border-emerald-500" placeholder="e.g. Ramesh Kumar, Swiggy..." oninput="filterLenderMarketplace()"/>
+</div>
+
+<!-- Filter 1: GigScore Range -->
+<div class="space-y-1">
+<label class="block font-bold text-slate-700 text-[11px]">GigScore Tier</label>
+<select id="lender-tier-filter" class="w-full bg-white border border-slate-200 rounded-lg p-2 outline-none" onchange="filterLenderMarketplace()">
+<option value="all">All Risk Tiers (300-900)</option>
+<option value="prime">Prime (Score ≥ 740)</option>
+<option value="standard">Standard (Score 620-739)</option>
+</select>
+</div>
+
+<!-- Filter 2: Data Confidence Score -->
+<div class="space-y-1">
+<label class="block font-bold text-slate-700 text-[11px]">Data Confidence</label>
+<select id="lender-confidence-filter" class="w-full bg-white border border-slate-200 rounded-lg p-2 outline-none" onchange="filterLenderMarketplace()">
+<option value="all">All Confidence Levels</option>
+<option value="90">90%+ High Bank Matched</option>
+<option value="95">95%+ AA Verified</option>
+</select>
+</div>
+
+<!-- Filter 3: City / Region -->
+<div class="space-y-1">
+<label class="block font-bold text-slate-700 text-[11px]">Metropolitan Hub</label>
+<select id="lender-city-filter" class="w-full bg-white border border-slate-200 rounded-lg p-2 outline-none" onchange="filterLenderMarketplace()">
+<option value="all">All Cities (Pan India)</option>
+<option value="Delhi NCR">Delhi NCR</option>
+<option value="Bengaluru">Bengaluru</option>
+<option value="Mumbai">Mumbai</option>
+</select>
+</div>
+</div>
 <div>
 <h3 class="text-xl font-bold font-headline text-on-surface">Underwritten Worker Marketplace</h3>
 <p class="text-xs text-slate-500">Step 4 &amp; 5: Review AA bank statements, SMS payout alerts, and daily micro-EMI parameters.</p>
@@ -218,7 +275,7 @@ Institutional Yield &amp; Risk Dashboard
 <div class="p-4 bg-emerald-50/50 rounded-2xl border border-emerald-200 space-y-2">
 <span class="text-[10px] font-bold uppercase text-emerald-800 font-mono">ACCOUNT AGGREGATOR (AA)</span>
 <div class="font-bold text-slate-800 text-xs" id="modal-aa-handle">ramesh@finvu</div>
-<div class="text-[11px] text-slate-500">Provider: Finvu AA Rails (RBI Approved)</div>
+<div class="text-[11px] text-slate-500">Provider: Finvu AA Rails</div>
 <div class="text-[11px] text-emerald-700 font-semibold font-mono">Avg Balance: ₹24,800 • Deposit Index: 96%</div>
 </div>
 <div class="p-4 bg-blue-50/50 rounded-2xl border border-blue-200 space-y-2">
@@ -277,8 +334,59 @@ Institutional Yield &amp; Risk Dashboard
 </div>
 </div>
 
+<!-- LENDER AI COPILOT FLOATING BUTTON & CHAT DRAWER -->
+<div id="copilot-floating-container" class="fixed bottom-6 right-6 z-50">
+  <button id="copilot-floating-btn" class="bg-gradient-to-r from-emerald-700 to-teal-700 hover:from-emerald-800 hover:to-teal-800 text-white font-bold text-xs px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-white/20 transition-all transform hover:scale-105" onclick="toggleCopilotDrawer()">
+    <span class="material-symbols-outlined text-[20px]">smart_toy</span>
+    <span>Lender AI Copilot 🤖</span>
+  </button>
+
+  <!-- Chat Drawer Popup -->
+  <div id="copilot-chat-drawer" class="hidden absolute bottom-14 right-0 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[480px]">
+    <!-- Drawer Header -->
+    <div class="bg-gradient-to-r from-slate-900 to-emerald-950 text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center font-bold text-xs">🤖</div>
+        <div>
+          <div class="text-xs font-bold text-white">Institutional AI Copilot</div>
+          <div class="text-[10px] text-emerald-400 font-mono">Verified Underwriting Risk Context Active</div>
+        </div>
+      </div>
+      <button class="text-slate-400 hover:text-white" onclick="toggleCopilotDrawer()">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="copilot-messages-box" class="flex-1 p-4 overflow-y-auto space-y-3">
+      <div class="flex justify-start">
+        <div class="bg-emerald-50 border border-emerald-100 text-slate-800 text-xs font-medium px-3.5 py-2.5 rounded-2xl rounded-tl-none max-w-[90%] space-y-1 shadow-sm">
+          <div class="text-[10px] font-bold text-emerald-800 font-mono">🤖 INSTITUTIONAL LENDER AI COPILOT</div>
+          <div>Welcome Lender! I am your portfolio risk copilot. Ask me why Ramesh Kumar is low risk, audit confidence scores, or query non-performing loan defaults!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompts Chips -->
+    <div class="p-2 border-t border-slate-100 bg-slate-50 flex gap-1.5 overflow-x-auto text-[10px] font-semibold text-emerald-800">
+      <button class="px-2.5 py-1 bg-white border border-slate-200 rounded-full shrink-0 hover:border-emerald-500" onclick="sendCopilotQuery('Why is Ramesh Kumar low risk?')">Why Low Risk?</button>
+      <button class="px-2.5 py-1 bg-white border border-slate-200 rounded-full shrink-0 hover:border-emerald-500" onclick="sendCopilotQuery('Explain 96% confidence score')">Audit Confidence 🔍</button>
+      <button class="px-2.5 py-1 bg-white border border-slate-200 rounded-full shrink-0 hover:border-emerald-500" onclick="sendCopilotQuery('Summarize portfolio default risk')">Default Risk 📊</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="p-3 border-t border-slate-200 bg-white flex gap-2">
+      <input id="copilot-user-input" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-emerald-500 font-medium" placeholder="Ask Lender AI Copilot..." onkeypress="if(event.key==='Enter') sendCopilotQuery()"/>
+      <button class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-2 rounded-xl text-xs flex items-center justify-center transition-all" onclick="sendCopilotQuery()">
+        <span class="material-symbols-outlined text-[18px]">send</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script src="js/api.js"></script>
 <script src="js/lender.js"></script>
+<script src="js/financialPassport.js"></script>
 <script>
 function toggleProfileSwitcher() {
     document.getElementById('profile-switcher-menu').classList.toggle('show');

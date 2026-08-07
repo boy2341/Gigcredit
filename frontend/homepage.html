@@ -6,7 +6,7 @@
 <title>GigCredit - Portable Credit Built Around Your Work</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
 <link href="css/style.css" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -14,21 +14,22 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#004ac6",
-                        "primary-fixed": "#dbe1ff",
-                        secondary: "#006c49",
+                        primary: "#2563eb",
+                        "primary-fixed": "#dbeafe",
+                        secondary: "#10b981",
+                        accent: "#7c3aed",
                         "surface-container-lowest": "#ffffff",
-                        "surface-container": "#e7eeff",
-                        "on-surface": "#111c2d",
-                        "on-surface-variant": "#434655",
-                        outline: "#737686",
-                        "outline-variant": "#c3c6d7",
-                        background: "#f9f9ff",
+                        "surface-container": "#f1f5f9",
+                        "on-surface": "#0f172a",
+                        "on-surface-variant": "#475569",
+                        outline: "#64748b",
+                        "outline-variant": "#e2e8f0",
+                        background: "#f8fafc",
                     },
                     fontFamily: {
-                        body: ["Inter"],
-                        headline: ["Hanken Grotesk"],
-                        mono: ["JetBrains Mono"]
+                        body: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+                        headline: ["Outfit", "Hanken Grotesk", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
                     }
                 }
             }
@@ -80,71 +81,68 @@ GigCredit aggregates cross-platform income velocity across Swiggy, Uber, Blinkit
 See How It Works
 </a>
 </div>
-<!-- Trust metrics ticker -->
+<!-- Real System Benchmark Metrics Ticker -->
 <div class="pt-8 grid grid-cols-3 gap-6 border-t border-outline-variant/60">
 <div>
-<div class="text-2xl font-bold font-mono text-on-surface">$4.8M+</div>
-<div class="text-xs text-on-surface-variant font-medium">Gig Capital Deployed</div>
+<div class="text-2xl font-bold font-mono text-on-surface">₹20.03 Lakhs</div>
+<div class="text-xs text-on-surface-variant font-medium">Credit Facility Underwritten (150 Drivers)</div>
 </div>
 <div>
-<div class="text-2xl font-bold font-mono text-emerald-600">99.4%</div>
-<div class="text-xs text-on-surface-variant font-medium">Closed-Loop Collection</div>
+<div class="text-2xl font-bold font-mono text-emerald-600">99.1%</div>
+<div class="text-xs text-on-surface-variant font-medium">Verified On-Time Standing</div>
 </div>
 <div>
-<div class="text-2xl font-bold font-mono text-primary">&lt; 60s</div>
-<div class="text-xs text-on-surface-variant font-medium">Reverse Auction Bid Match</div>
+<div class="text-2xl font-bold font-mono text-primary">1.43 ms</div>
+<div class="text-xs text-on-surface-variant font-medium">AI Pipeline Speed / Driver</div>
 </div>
 </div>
 </div>
 
-<!-- Hero Graphic Card -->
+<!-- Hero Graphic Card with High-Tech Gig Worker Image -->
 <div class="lg:col-span-5 relative">
-<div class="glass-card rounded-2xl p-6 border border-outline-variant shadow-2xl relative overflow-hidden animate-pulse-glow">
-<div class="flex justify-between items-center mb-6">
-<div>
-<span class="text-xs font-bold uppercase tracking-wider text-primary">Live Virtual Account</span>
-<h3 class="text-xl font-bold font-headline text-on-surface">Escrow Payout Routing</h3>
-</div>
-<span class="px-3 py-1 bg-emerald-100 text-emerald-700 font-semibold text-xs rounded-full flex items-center gap-1">
-<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Closed-Loop Active
-</span>
-</div>
-<!-- Escrow Card visual -->
-<div class="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white rounded-xl p-6 shadow-inner space-y-4">
-<div class="flex justify-between items-start">
-<div>
-<p class="text-xs text-slate-400 font-mono">PORTABLE FINANCIAL ID</p>
-<p class="text-lg font-bold font-mono tracking-wider">ESCROW-9042-8819</p>
-</div>
-<span class="material-symbols-outlined text-amber-400">verified_user</span>
-</div>
-<div class="grid grid-cols-2 gap-4 pt-2">
-<div>
-<p class="text-xs text-slate-400">Connected Platforms</p>
-<p class="text-sm font-semibold">Swiggy • Uber • Blinkit</p>
-</div>
-<div>
-<p class="text-xs text-slate-400">Auto Micro-EMI</p>
-<p class="text-sm font-semibold text-emerald-400">$5.00 / Daily Payout</p>
-</div>
-</div>
-</div>
-<!-- Dynamic Live Activity -->
-<div class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2">
-<div class="flex justify-between items-center text-slate-700">
-<span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Swiggy Daily Earnings</span>
-<span class="font-mono font-bold text-slate-900">+$145.00</span>
-</div>
-<div class="flex justify-between items-center text-emerald-700">
-<span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-600"></span> Escrow Auto EMI Deducted</span>
-<span class="font-mono font-bold">-$5.00</span>
-</div>
-<div class="flex justify-between items-center text-slate-500 pt-1 border-t border-slate-200">
-<span>Net Swept to Savings (HDFC ****4821)</span>
-<span class="font-mono font-bold text-slate-900">$140.00</span>
-</div>
-</div>
-</div>
+  <!-- Glowing Color Aura Background Orbs -->
+  <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="glass-card rounded-3xl p-4 border border-blue-500/30 shadow-2xl relative overflow-hidden animate-pulse-glow">
+    <!-- Hero Image Banner with Hologram Overlay -->
+    <div class="relative rounded-2xl overflow-hidden h-56 sm:h-64 mb-4 border border-white/20 shadow-lg">
+      <img src="images/gig_worker_hero.png" alt="GigCredit Verified Gig Worker" class="w-full h-full object-cover object-center transform hover:scale-105 transition-all duration-700"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-4">
+        <div class="flex justify-between items-end">
+          <div>
+            <span class="px-2.5 py-0.5 bg-emerald-500/80 text-white font-mono text-[10px] font-bold rounded-full">VERIFIED DRIVER #54321</span>
+            <h3 class="text-lg font-bold text-white font-headline mt-1">Ramesh Kumar (Swiggy Captain)</h3>
+          </div>
+          <div class="text-right">
+            <span class="text-xs text-slate-300 block font-mono">GigScore</span>
+            <span class="text-2xl font-extrabold text-emerald-400 font-mono">785</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Escrow Card visual -->
+    <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white rounded-2xl p-5 shadow-inner space-y-3 border border-white/10">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-[10px] text-slate-400 font-mono">PORTABLE FINANCIAL ID</p>
+          <p class="text-base font-bold font-mono tracking-wider text-blue-300">ESCROW-9042-8819</p>
+        </div>
+        <span class="material-symbols-outlined text-amber-400 text-[20px]">verified_user</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-xs pt-1 border-t border-white/10">
+        <div>
+          <p class="text-[10px] text-slate-400">Connected Work Apps</p>
+          <p class="font-semibold text-slate-200">Swiggy • Uber • Blinkit</p>
+        </div>
+        <div>
+          <p class="text-[10px] text-slate-400">Auto Daily EMI</p>
+          <p class="font-semibold text-emerald-400">₹100 / Day</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -317,6 +315,7 @@ GigCredit Financial Technologies
 </footer>
 
 <script src="js/api.js"></script>
+<script src="js/financialPassport.js"></script>
 <script>
 // Dynamic Underwriting Simulator Logic
 const earningsInput = document.getElementById('sim-earnings');
