@@ -1,15 +1,20 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
+  if (!process.env.MONGO_URI && process.env.VERCEL) {
+    console.log('[DB] Running in In-Memory / Mock Data Mode on Vercel');
+    return;
+  }
+
   try {
     const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/gigcredit';
-    const conn = await mongoose.connect(uri);
+    const conn = await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 2000,
+    });
     console.log(`[DB] MongoDB connected: ${conn.connection.host}/${conn.connection.name}`);
   } catch (err) {
-    console.error(`[DB] Connection error: ${err.message}`);
-    // In a hackathon/demo setting we don't want the whole process to silently
-    // hang if Mongo isn't reachable yet - fail loud but let nodemon retry on restart.
-    process.exit(1);
+    console.warn(`[DB] Could not connect to MongoDB: ${err.message}. Falling back to In-Memory Mock Data.`);
+    // Do NOT execute process.exit(1) on Vercel or production serverless environments!
   }
 };
 
