@@ -22,15 +22,20 @@ class PipelineContext {
     };
 
     this.rawInput = {
-      documentName: initialData.documentName || 'hbdc_bank_statement_july.pdf',
+      documentName: initialData.documentName || initialData.bankDoc || 'hdfc_bank_statement_july.png',
+      bankDoc: initialData.bankDoc || initialData.documentName || 'hdfc_bank_statement_july.png',
+      payoutDoc: initialData.payoutDoc || 'swiggy_zomato_weekly_payout.png',
+      ratingDoc: initialData.ratingDoc || 'fleet_captain_4_9_star_badge.png',
+      upiDoc: initialData.upiDoc || 'upi_phonepe_history_july.png',
       documentBuffer: initialData.documentBuffer || null,
       smsSampleText: initialData.smsSampleText || 'Alert: Swiggy payout ₹4,625 deposited to Escrow HDFC0000240',
       selectedPlatforms: initialData.selectedPlatforms || ['Swiggy', 'Zomato', 'Blinkit'],
+      ...initialData,
     };
 
     // Stage 1: Document Intelligence
     this.document = {
-      documentType: null, // Bank Statement, Earnings Screenshot, Rating Badge, UPI History
+      documentType: null,
       mimeType: 'application/pdf',
       confidenceScore: 0,
     };

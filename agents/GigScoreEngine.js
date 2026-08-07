@@ -12,15 +12,15 @@
 
 const { runMLUnderwritingEngine } = require('../utils/mlUnderwritingEngine');
 
-// Category Weights & Scores
+// Category Base Scores & Weights
 const BANK_SCORES = {
   'hdfc_bank_statement_july.png': 540,
   'sbi_scanned_bank_statement.png': 520,
   'icici_cashflow_statement.png': 535,
-  'unity_trust_bank_farhan.png': 510,
+  'unity_trust_bank_farhan.png': 480,
   'unity_trust_bank_amanpreet.png': 525,
-  'edited_tampered_statement.png': 320, // Fraud penalty
-  'starter_cashflow_statement.png': 440,
+  'edited_tampered_statement.png': 200, // Fraud flag penalty -> 320 total
+  'starter_cashflow_statement.png': 260, // Low income (₹9,500/mo) -> 340-490 score
 };
 
 const PAYOUT_SCORES = {
@@ -29,8 +29,8 @@ const PAYOUT_SCORES = {
   'gurpreet_express_freight_log.png': 150,
   'uber_ola_earnings_summary.png': 110,
   'ananya_urbancompany_paystub.png': 135,
-  'vikram_rapido_shadowfax_receipt.png': 105,
-  'unverified_solo_paystub.png': 45,
+  'vikram_rapido_shadowfax_receipt.png': 65,
+  'unverified_solo_paystub.png': 30, // Irregular low payout
 };
 
 const RATING_SCORES = {
@@ -39,18 +39,18 @@ const RATING_SCORES = {
   'porter_super_star_driver.png': 110,
   'zepto_5star_courier.png': 90,
   'urbancompany_diamond_badge.png': 105,
-  'shadowfax_silver_captain.png': 75,
-  'unrated_starter_badge.png': 30,
+  'shadowfax_silver_captain.png': 45,
+  'unrated_starter_badge.png': 15, // Unrated / low rating
 };
 
 const UPI_SCORES = {
   'upi_phonepe_history_july.png': 110,
   'paytm_upi_statement.png': 95,
   'gpay_business_upi_log.png': 105,
-  'amazon_pay_cashflow_log.png': 85,
+  'amazon_pay_cashflow_log.png': 75,
   'bhim_escrow_direct_log.png': 115,
   'cred_upi_settlement_log.png': 100,
-  'high_outflow_upi_log.png': 20, // High outflow warning
+  'high_outflow_upi_log.png': 15, // High outflow / zero savings warning
 };
 
 class GigScoreEngine {
@@ -67,14 +67,14 @@ class GigScoreEngine {
     const ratingDoc = context.rawInput.ratingDoc || 'fleet_captain_4_9_star_badge.png';
     const upiDoc = context.rawInput.upiDoc || 'upi_phonepe_history_july.png';
 
-    const bBase = BANK_SCORES[bankDoc] || 520;
-    const pBonus = PAYOUT_SCORES[payoutDoc] || 110;
-    const rBonus = RATING_SCORES[ratingDoc] || 85;
-    const uBonus = UPI_SCORES[upiDoc] || 90;
+    const bBase = BANK_SCORES[bankDoc] !== undefined ? BANK_SCORES[bankDoc] : 520;
+    const pBonus = PAYOUT_SCORES[payoutDoc] !== undefined ? PAYOUT_SCORES[payoutDoc] : 110;
+    const rBonus = RATING_SCORES[ratingDoc] !== undefined ? RATING_SCORES[ratingDoc] : 85;
+    const uBonus = UPI_SCORES[upiDoc] !== undefined ? UPI_SCORES[upiDoc] : 90;
 
     let finalScore = bBase + pBonus + rBonus + uBonus;
 
-    // Fraud penalty if tampered statement or unverified credentials chosen
+    // Fraud penalty if tampered statement chosen
     if (bankDoc === 'edited_tampered_statement.png') {
       finalScore = 320; // Critical fraud flag score
     }
@@ -86,12 +86,13 @@ class GigScoreEngine {
     // Dynamic approved credit line based on combination score
     const approvedCreditLine = Math.round((finalScore * 210) / 1000) * 1000;
     const dailyAutoEMI = Math.max(25, Math.ceil((approvedCreditLine / 360) * 1.03));
+    const verifiedMonthlyIncome = Math.round(finalScore * 58);
 
     context.gigScore = {
       score: finalScore,
       maxScore: 900,
       riskTier,
-      verifiedMonthlyIncome: Math.round(finalScore * 65),
+      verifiedMonthlyIncome,
       approvedCreditLine,
       dailyAutoEMI,
       scoreBreakdown: [
